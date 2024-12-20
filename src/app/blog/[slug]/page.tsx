@@ -12,6 +12,7 @@ import dayjs from 'dayjs'
 import type { Metadata } from 'next'
 import { PortableText } from 'next-sanity'
 import { notFound } from 'next/navigation'
+import type { Key, ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from 'react'
 
 export async function generateMetadata({
   params,
@@ -59,7 +60,7 @@ export default async function BlogPost({
             )}
             {Array.isArray(post.categories) && (
               <div className="flex flex-wrap gap-2">
-                {post.categories.map((category) => (
+                {post.categories.map((category: any) => (
                   <Link
                     key={category.slug}
                     href={`/blog?category=${category.slug}`}

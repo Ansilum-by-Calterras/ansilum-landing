@@ -26,7 +26,7 @@ export async function GET(req: Request) {
 
   let posts = await getPostsForFeed()
 
-  posts.forEach((post) => {
+  posts.forEach((post: any) => {
     try {
       assert(typeof post.title === 'string')
       assert(typeof post.slug === 'string')

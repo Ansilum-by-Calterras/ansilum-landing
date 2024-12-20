@@ -33,11 +33,9 @@ export const metadata: Metadata = {
 
 const postsPerPage = 5
 
-async function FeaturedPosts() {
-  let featuredPosts = await getFeaturedPosts(3)
-
+function FeaturedPosts({ featuredPosts }: { featuredPosts: any[] }) {
   if (featuredPosts.length === 0) {
-    return
+    return null;
   }
 
   return (
@@ -90,78 +88,44 @@ async function FeaturedPosts() {
         </div>
       </Container>
     </div>
-  )
+  );
 }
 
-async function Categories({ selected }: { selected?: string }) {
-  let categories = await getCategories()
-
+function Categories({ selected, categories }: { selected?: string; categories: any[] }) {
   if (categories.length === 0) {
-    return
+    return null;
   }
 
   return (
     <div className="flex flex-wrap items-center justify-between gap-2">
       <Menu>
         <MenuButton className="flex items-center justify-between gap-2 font-medium">
-          {categories.find(({ slug }) => slug === selected)?.title ||
-            'All categories'}
+          {categories.find(({ slug }) => slug === selected)?.title || 'All categories'}
           <ChevronUpDownIcon className="size-4 fill-slate-900" />
         </MenuButton>
-        <MenuItems
-          anchor="bottom start"
-          className="min-w-40 rounded-lg bg-white p-1 shadow-lg ring-1 ring-gray-200 [--anchor-gap:6px] [--anchor-offset:-4px] [--anchor-padding:10px]"
-        >
+        <MenuItems className="menu-items">
           <MenuItem>
-            <Link
-              href="/blog"
-              data-selected={selected === undefined ? true : undefined}
-              className="group grid grid-cols-[1rem,1fr] items-center gap-2 rounded-md px-2 py-1 data-[focus]:bg-gray-950/5"
-            >
-              <CheckIcon className="hidden size-4 group-data-[selected]:block" />
-              <p className="col-start-2 text-sm/6">All categories</p>
-            </Link>
+            <Link href="/blog">All categories</Link>
           </MenuItem>
           {categories.map((category) => (
             <MenuItem key={category.slug}>
-              <Link
-                href={`/blog?category=${category.slug}`}
-                data-selected={category.slug === selected ? true : undefined}
-                className="group grid grid-cols-[16px,1fr] items-center gap-2 rounded-md px-2 py-1 data-[focus]:bg-gray-950/5"
-              >
-                <CheckIcon className="hidden size-4 group-data-[selected]:block" />
-                <p className="col-start-2 text-sm/6">{category.title}</p>
-              </Link>
+              <Link href={`/blog?category=${category.slug}`}>{category.title}</Link>
             </MenuItem>
           ))}
         </MenuItems>
       </Menu>
-      <Button variant="outline" href="/blog/feed.xml" className="gap-1">
-        <RssIcon className="size-4" />
-        RSS Feed
-      </Button>
     </div>
-  )
+  );
 }
 
-async function Posts({ page, category }: { page: number; category?: string }) {
-  let posts = await getPosts(
-    (page - 1) * postsPerPage,
-    page * postsPerPage,
-    category,
-  )
-
-  if (posts.length === 0 && (page > 1 || category)) {
-    notFound()
-  }
-
+function Posts({ posts }: { posts: any[] }) {
   if (posts.length === 0) {
     return <p className="mt-6 text-gray-500">No posts found.</p>
   }
 
   return (
     <div className="mt-6">
-      {posts.map((post) => (
+      {posts.map((post: any) => (
         <div
           key={post.slug}
           className="relative grid grid-cols-1 border-b border-b-gray-100 py-10 first:border-t first:border-t-gray-200 max-sm:gap-3 sm:grid-cols-3"
@@ -205,13 +169,7 @@ async function Posts({ page, category }: { page: number; category?: string }) {
   )
 }
 
-async function Pagination({
-  page,
-  category,
-}: {
-  page: number
-  category?: string
-}) {
+function Pagination({ totalPosts, page, category }: { totalPosts: number; page: number; category?: string }) {
   function url(page: number) {
     let params = new URLSearchParams()
 
@@ -221,15 +179,14 @@ async function Pagination({
     return params.size !== 0 ? `/blog?${params.toString()}` : '/blog'
   }
 
-  let totalPosts = await getPostsCount(category)
   let hasPreviousPage = page - 1
   let previousPageUrl = hasPreviousPage ? url(page - 1) : undefined
   let hasNextPage = page * postsPerPage < totalPosts
   let nextPageUrl = hasNextPage ? url(page + 1) : undefined
-  let pageCount = Math.ceil(totalPosts / postsPerPage)
+  const pageCount = Math.ceil(totalPosts / postsPerPage);
 
   if (pageCount < 2) {
-    return
+    return null;
   }
 
   return (
@@ -272,6 +229,16 @@ export default async function Blog({
 }: {
   searchParams: { [key: string]: string | string[] | undefined }
 }) {
+  let category =
+    typeof searchParams.category === 'string'
+      ? searchParams.category
+      : undefined
+
+  const featuredPosts = await getFeaturedPosts(3);
+  const categories = await getCategories();
+  const posts = await getPosts(0, postsPerPage, category);
+  const totalPosts = await getPostsCount(category);
+
   let page =
     'page' in searchParams
       ? typeof searchParams.page === 'string' && parseInt(searchParams.page) > 1
@@ -279,10 +246,6 @@ export default async function Blog({
         : notFound()
       : 1
 
-  let category =
-    typeof searchParams.category === 'string'
-      ? searchParams.category
-      : undefined
 
   return (
     <main className="overflow-hidden">
@@ -298,11 +261,13 @@ export default async function Blog({
           to sell smarter at your company.
         </Lead>
       </Container>
-      {page === 1 && !category && <FeaturedPosts />}
+      {page === 1 && !category && (
+        <FeaturedPosts featuredPosts={featuredPosts} />
+      )}
       <Container className="mt-16 pb-24">
-        <Categories selected={category} />
-        <Posts page={page} category={category} />
-        <Pagination page={page} category={category} />
+        <Categories selected={category} categories={categories} />
+        <Posts posts={posts} />
+        <Pagination totalPosts={totalPosts} page={page} category={category} />
       </Container>
       <Footer />
     </main>
