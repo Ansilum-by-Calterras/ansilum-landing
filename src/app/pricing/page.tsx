@@ -17,7 +17,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Pricing',
   description:
-    'Companies all over the world have closed millions of deals with Radiant. Sign up today and start selling smarter.',
+    'Companies all over the world have closed millions of deals with Calterras. Sign up today and start selling smarter.',
 }
 
 const tiers = [
@@ -31,7 +31,7 @@ const tiers = [
       { description: 'Up to 3 team members' },
       { description: 'Up to 5 deal progress boards' },
       { description: 'Source leads from select platforms' },
-      { description: 'RadiantAI integrations', disabled: true },
+      { description: 'CalterrasAI integrations', disabled: true },
       { description: 'Competitor analysis', disabled: true },
     ],
     features: [
@@ -59,7 +59,7 @@ const tiers = [
       { description: 'Up to 10 team members' },
       { description: 'Unlimited deal progress boards' },
       { description: 'Source leads from over 50 verified platforms' },
-      { description: 'RadiantAI integrations' },
+      { description: 'CalterrasAI integrations' },
       { description: '5 competitor analyses per month' },
     ],
     features: [
@@ -87,7 +87,7 @@ const tiers = [
       { description: 'Unlimited active team members' },
       { description: 'Unlimited deal progress boards' },
       { description: 'Source leads from over 100 verified platforms' },
-      { description: 'RadiantAI integrations' },
+      { description: 'CalterrasAI integrations' },
       { description: 'Unlimited competitor analyses' },
     ],
     features: [
@@ -112,7 +112,7 @@ function Header() {
     <Container className="mt-16">
       <Heading as="h1">Pricing that grows with your team size.</Heading>
       <Lead className="mt-6 max-w-3xl">
-        Companies all over the world have closed millions of deals with Radiant.
+        Companies all over the world have closed millions of deals with Calterras.
         Sign up today and start selling smarter.
       </Lead>
     </Container>
@@ -387,7 +387,7 @@ function Testimonial() {
             <figure className="mx-auto flex max-w-xl flex-col gap-16 max-lg:text-center">
               <blockquote>
                 <p className="relative text-3xl tracking-tight text-white before:absolute before:-translate-x-full before:content-['“'] after:absolute after:content-['”'] lg:text-4xl">
-                  Thanks to Radiant, we&apos;re finding new leads that we never
+                  Thanks to Calterras, we&apos;re finding new leads that we never
                   would have found with legal methods.
                 </p>
               </blockquote>

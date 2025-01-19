@@ -7,7 +7,7 @@ export async function GET(req: Request) {
   let siteUrl = new URL(req.url).origin
 
   let feed = new Feed({
-    title: 'The Radiant Blog',
+    title: 'The Calterras Blog',
     description:
       'Stay informed with product updates, company news, and insights on how to sell smarter at your company.',
     author: {

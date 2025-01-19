@@ -253,7 +253,7 @@ export default async function Blog({
       <Container>
         <Subheading className="mt-16">Blog</Subheading>
         <Heading as="h1" className="mt-2">
-          What’s happening at Radiant.
+          What’s happening at Calterras.
         </Heading>
         <Lead className="mt-6 max-w-3xl">
           Stay informed with product updates, company news, and insights on how
