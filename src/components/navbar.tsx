@@ -10,25 +10,18 @@ import { motion } from 'framer-motion'
 import { Link } from './link'
 import { Logo } from './logo'
 import { PlusGrid, PlusGridItem, PlusGridRow } from './plus-grid'
-
-const links = [
-  { href: '/our-products', label: 'Our Products' },
-  { href: '/pricing', label: 'Pricing' },
-  { href: '/company', label: 'Company' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/login', label: 'Login' },
-]
+import { navItems } from '@/data/links'
 
 function DesktopNav() {
   return (
     <nav className="relative hidden lg:flex">
-      {links.map(({ href, label }) => (
-        <PlusGridItem key={href} className="relative flex">
+      {navItems.map(({ link, name }) => (
+        <PlusGridItem key={link} className="relative flex">
           <Link
-            href={href}
+            href={link}
             className="flex items-center px-4 py-3 text-base font-medium text-gray-950 bg-blend-multiply data-[hover]:bg-black/[2.5%]"
           >
-            {label}
+            {name}
           </Link>
         </PlusGridItem>
       ))}
@@ -51,7 +44,7 @@ function MobileNav() {
   return (
     <DisclosurePanel className="lg:hidden">
       <div className="flex flex-col gap-6 py-4">
-        {links.map(({ href, label }, linkIndex) => (
+        {navItems.map(({ link, name }, linkIndex) => (
           <motion.div
             initial={{ opacity: 0, rotateX: -90 }}
             animate={{ opacity: 1, rotateX: 0 }}
@@ -60,10 +53,10 @@ function MobileNav() {
               ease: 'easeInOut',
               rotateX: { duration: 0.3, delay: linkIndex * 0.1 },
             }}
-            key={href}
+            key={link}
           >
-            <Link href={href} className="text-base font-medium text-gray-950">
-              {label}
+            <Link href={link} className="text-base font-medium text-gray-950">
+              {name}
             </Link>
           </motion.div>
         ))}

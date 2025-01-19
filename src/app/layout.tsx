@@ -7,6 +7,7 @@ import { Navbar } from '@/components/navbar'
 import Link from 'next/link'
 import { ChatBubbleLeftIcon, ChevronRightIcon, HomeIcon, UserIcon } from '@heroicons/react/16/solid'
 import { FloatingNav } from '@/components/ui/floating-navbar'
+import { navItems } from '@/data/links'
 
 export const metadata: Metadata = {
   title: {
@@ -32,26 +33,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const navItems = [
-    {
-      name: "Home",
-      link: "/",
-      icon: <HomeIcon className="h-4 w-4 text-neutral-500 dark:text-white" />,
-    },
-    {
-      name: "About",
-      link: "/about",
-      icon: <UserIcon className="h-4 w-4 text-neutral-500 dark:text-white" />,
-    },
-    {
-      name: "Contact",
-      link: "/contact",
-      icon: (
-        <ChatBubbleLeftIcon className="h-4 w-4 text-neutral-500 dark:text-white" />
-      ),
-    },
-  ];
-
   return (
     <html
       lang="en"
