@@ -32,10 +32,9 @@ export default async function BlogPost({
   let post = (await getPost(params.slug)) || notFound()
 
   return (
-    <main className="overflow-hidden">
+    <main className="overflow-hidden pt-24">
       <GradientBackground />
       <Container>
-        <Navbar />
         <Subheading className="mt-16">
           {dayjs(post.publishedAt).format('dddd, MMMM D, YYYY')}
         </Subheading>

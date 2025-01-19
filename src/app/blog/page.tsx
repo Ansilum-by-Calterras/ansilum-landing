@@ -248,10 +248,9 @@ export default async function Blog({
 
 
   return (
-    <main className="overflow-hidden">
+    <main className="overflow-hidden pt-24">
       <GradientBackground />
       <Container>
-        <Navbar />
         <Subheading className="mt-16">Blog</Subheading>
         <Heading as="h1" className="mt-2">
           What’s happening at Radiant.

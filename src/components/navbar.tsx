@@ -78,13 +78,16 @@ function MobileNav() {
 
 export function Navbar({ banner }: { banner?: React.ReactNode }) {
   return (
-    <Disclosure as="header" className="pt-12 sm:pt-16">
-      <PlusGrid>
+    <Disclosure
+      as="header"
+      className="absolute top-0 left-0 w-full z-10 backdrop-blur-lg bg-white/20"
+    >
+      <PlusGrid className="max-w-screen-2xl mx-auto lg:px-8">
         <PlusGridRow className="relative flex justify-between">
           <div className="relative flex gap-6">
             <PlusGridItem className="py-3">
               <Link href="/" title="Home">
-                <Logo className="h-9" />
+                <Logo />
               </Link>
             </PlusGridItem>
             {banner && (
@@ -99,5 +102,5 @@ export function Navbar({ banner }: { banner?: React.ReactNode }) {
       </PlusGrid>
       <MobileNav />
     </Disclosure>
-  )
+  );
 }

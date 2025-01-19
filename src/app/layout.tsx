@@ -3,6 +3,10 @@ import { Inter, Lexend } from 'next/font/google'
 import clsx from 'clsx'
 
 import '@/styles/tailwind.css'
+import { Navbar } from '@/components/navbar'
+import Link from 'next/link'
+import { ChatBubbleLeftIcon, ChevronRightIcon, HomeIcon, UserIcon } from '@heroicons/react/16/solid'
+import { FloatingNav } from '@/components/ui/floating-navbar'
 
 export const metadata: Metadata = {
   title: {
@@ -28,6 +32,26 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const navItems = [
+    {
+      name: "Home",
+      link: "/",
+      icon: <HomeIcon className="h-4 w-4 text-neutral-500 dark:text-white" />,
+    },
+    {
+      name: "About",
+      link: "/about",
+      icon: <UserIcon className="h-4 w-4 text-neutral-500 dark:text-white" />,
+    },
+    {
+      name: "Contact",
+      link: "/contact",
+      icon: (
+        <ChatBubbleLeftIcon className="h-4 w-4 text-neutral-500 dark:text-white" />
+      ),
+    },
+  ];
+
   return (
     <html
       lang="en"
@@ -49,7 +73,21 @@ export default function RootLayout({
           href="/blog/feed.xml"
         />
       </head>
-      <body className="text-gray-950 antialiased">{children}</body>
+      <body className="text-gray-950 antialiased">
+        <Navbar
+          banner={
+            <Link
+              href="/blog/radiant-raises-100m-series-a-from-tailwind-ventures"
+              className="flex items-center gap-1 rounded-full bg-teal-700/45 px-3 py-0.5 text-sm/6 font-medium text-white data-[hover]:bg-fuchsia-950/30"
+            >
+              Radiant raises $100M Series A from Tailwind Ventures
+              <ChevronRightIcon className="size-4" />
+            </Link>
+          }
+        />
+        <FloatingNav navItems={navItems} />
+        {children}
+      </body>
     </html>
   )
 }
