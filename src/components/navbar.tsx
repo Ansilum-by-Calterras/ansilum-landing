@@ -75,7 +75,7 @@ export function Navbar({ banner }: { banner?: React.ReactNode }) {
       as="header"
       className="absolute top-0 left-0 w-full z-10 backdrop-blur-lg bg-white/20"
     >
-      <PlusGrid className="max-w-screen-2xl mx-auto lg:px-8">
+      <PlusGrid className="max-w-screen-2xl mx-auto px-7 lg:px-8">
         <PlusGridRow className="relative flex justify-between">
           <div className="relative flex gap-6">
             <PlusGridItem className="py-3">
