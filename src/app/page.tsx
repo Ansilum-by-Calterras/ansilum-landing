@@ -34,7 +34,7 @@ function Hero() {
           <div className="mt-12 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
             <Button
               href="#"
-              className="bg-gradient-to-r from-[#60A1BF] to-[#274296] text-white px-4 py-2 rounded-full border-none shadow-md hover:opacity-90"
+              variant='secondary_dark'
             >
               Get started
             </Button>
