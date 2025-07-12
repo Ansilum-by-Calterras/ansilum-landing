@@ -1,13 +1,15 @@
+import clsx from 'clsx'
 import { type Metadata } from 'next'
 import { Inter, Lexend } from 'next/font/google'
-import clsx from 'clsx'
 
-import '@/styles/tailwind.css'
 import { Navbar } from '@/components/navbar'
-import Link from 'next/link'
-import { ChatBubbleLeftIcon, ChevronRightIcon, HomeIcon, UserIcon } from '@heroicons/react/16/solid'
 import { FloatingNav } from '@/components/ui/floating-navbar'
 import { navItems } from '@/data/links'
+import '@/styles/tailwind.css'
+import { ChevronRightIcon } from '@heroicons/react/16/solid'
+import { Analytics } from '@vercel/analytics/next'
+import Link from 'next/link'
+import Script from 'next/script'
 
 export const metadata: Metadata = {
   title: {
@@ -55,6 +57,21 @@ export default function RootLayout({
         />
       </head>
       <body className="text-gray-950 antialiased">
+        {/* Google Ads Scripts */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17343440971"
+          strategy="afterInteractive"
+          async
+        />
+        <Script id="google-ads" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17343440971');
+          `}
+        </Script>
+
         <Navbar
           banner={
             <Link
@@ -68,6 +85,9 @@ export default function RootLayout({
         />
         <FloatingNav navItems={navItems} />
         {children}
+
+        {/* Vercel Analytics */}
+        <Analytics />
       </body>
     </html>
   )
