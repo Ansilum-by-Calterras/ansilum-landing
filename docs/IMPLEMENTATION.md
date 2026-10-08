@@ -20,7 +20,7 @@ Demo intake includes client/server validation, consent, accessible feedback, dur
 
 ## Remaining before public launch
 
-1. Supply confirmed founder identity/profile, city/start year, company email and canonical domain through `.env.local`; rebuild. Missing values are omitted rather than guessed.
+1. ✅ Confirmed founder identity/profile, city/start year, company email and canonical domain are configured in the ignored `.env.local`; the production build completed successfully. Copy these values into the deployment environment before publishing. Missing optional values remain omitted rather than guessed.
 2. Configure and verify a production intake destination or persistent volume, assign a follow-up owner, and decide notifications/retention. Local demo storage is implemented; email/WhatsApp notification is not configured.
 3. Confirm deployed product/device/printer scope and record an end-to-end offline cash/receipt/reconnection demonstration. Current screenshots establish reporting UI only.
 4. Confirm any Early Merchant commercial/support terms; the site currently promises a discussion, not specific prices or support levels.

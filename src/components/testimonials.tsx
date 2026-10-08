@@ -27,7 +27,7 @@ const testimonials = [
     name: 'Tina Yards',
     title: 'Operations Manager, Kopi Nusantara',
     quote:
-      'TerraPOS gave us full visibility across all 12 outlets. We spotted a slow-moving SKU chain-wide and cleared it in a week  —  something that used to take a full audit.',
+      'Ansilum gave us full visibility across all 12 outlets. We spotted a slow-moving SKU chain-wide and cleared it in a week  —  something that used to take a full audit.',
   },
   {
     img: '/testimonials/conor-neville.jpg',
@@ -41,7 +41,7 @@ const testimonials = [
     name: 'Amy Chase',
     title: 'Head of F&B, Pocket Hotels Group',
     quote:
-      'We rolled TerraPOS across 5 hotel restaurants in under a day. The multi-tenant setup is seamless  —  each property has its own data but I can view everything from one login.',
+      'We rolled Ansilum across 5 hotel restaurants in under a day. The multi-tenant setup is seamless  —  each property has its own data but I can view everything from one login.',
   },
   {
     img: '/testimonials/veronica-winton.jpg',
@@ -55,14 +55,14 @@ const testimonials = [
     name: 'Dillon Lenora',
     title: 'Head of Tech, Detax Restaurant Group',
     quote:
-      'TerraPOS AI reports replaced our entire manual weekly reporting process. What used to take our team half a day now happens automatically overnight.',
+      'Ansilum AI reports replaced our entire manual weekly reporting process. What used to take our team half a day now happens automatically overnight.',
   },
   {
     img: '/testimonials/harriet-arron.jpg',
     name: 'Harriet Arron',
     title: 'Franchise Director, Commit Food Co.',
     quote:
-      'Rolling out new pricing across 30 franchisee outlets used to be a nightmare. With TerraPOS I push updates centrally and every outlet is live in minutes.',
+      'Rolling out new pricing across 30 franchisee outlets used to be a nightmare. With Ansilum I push updates centrally and every outlet is live in minutes.',
   },
 ]
 
@@ -161,7 +161,7 @@ function CallToAction() {
   return (
     <div>
       <p className="max-w-sm text-sm/6 text-gray-600">
-        Join hundreds of businesses already using TerraPOS to run smarter operations and grow with confidence.
+        Join hundreds of businesses already using Ansilum to run smarter operations and grow with confidence.
       </p>
       <div className="mt-2">
         <Link

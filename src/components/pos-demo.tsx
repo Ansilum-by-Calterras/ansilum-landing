@@ -74,7 +74,7 @@ const RECEIPT_LINES: RLineData[] = [
   { k: 'row', left: 'Kembalian', right: `Rp ${idr(CHANGE)}`, bold: true },
   { k: 'div' },
   { k: 'center', text: 'Terima Kasih! 🙏' },
-  { k: 'center', text: 'Powered by TerraPOS' },
+  { k: 'center', text: 'Powered by Ansilum' },
 ]
 
 function ReceiptLine({ line }: { line: RLineData }) {
@@ -214,7 +214,7 @@ export function POSDemo() {
               Fast, intuitive checkout — for every counter.
             </Heading>
             <p className="mt-6 text-sm/6 text-gray-600">
-              TerraPOS is built for speed. Process orders in seconds with a clean,
+              Ansilum is built for speed. Process orders in seconds with a clean,
               distraction-free cashier interface — optimised for both touch and
               keyboard-driven workflows.
             </p>

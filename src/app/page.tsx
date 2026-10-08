@@ -1,11 +1,11 @@
 import { Container } from '@/components/container'
 import { DemoLink } from '@/components/marketing/demo-link'
+import { OfflineFlowScroll } from '@/components/marketing/offline-flow-scroll'
 import { ProductImage } from '@/components/marketing/product-image'
 import {
   AIExample,
   Eyebrow,
   FinalCTA,
-  OfflineFlow,
   ProductStatus,
   Section,
   SectionTitle,
@@ -21,6 +21,7 @@ import {
   CheckIcon,
   WifiIcon,
 } from '@heroicons/react/24/outline'
+import Image from 'next/image'
 import Link from 'next/link'
 export const metadata = pageMetadata(
   'POS untuk Kafe & Restoran Indonesia',
@@ -73,11 +74,51 @@ export default function Home() {
                 untuk F&B Indonesia.
               </p>
             </div>
-            <div className="relative mx-auto w-full max-w-md lg:pl-8">
-              <ProductImage priority />
-              <p className="mx-auto mt-5 max-w-xs text-center text-xs leading-5 text-[#66503e]">
-                Cakupan fitur dan akses merchant dikonfirmasi saat demo.
-              </p>
+            <div className="relative mx-auto w-full max-w-xl lg:pl-4">
+              <div
+                aria-label="Pratinjau laporan Ansilum dengan data contoh"
+                className="relative isolate overflow-visible rounded-[2rem] border border-[#cdb9a4] bg-[#f7eee5] p-3 shadow-[0_30px_80px_-30px_#69452e80] sm:p-5"
+              >
+                <div className="overflow-hidden rounded-[1.45rem] border border-[#d7c5b4] bg-[#fffaf6] shadow-[0_12px_30px_-18px_#69452e99]">
+                  <div className="flex h-10 items-center gap-2 border-b border-[#eaded3] bg-[#fffdfb] px-4">
+                    <span className="size-2.5 rounded-full bg-[#d59c82]" />
+                    <span className="size-2.5 rounded-full bg-[#d8b76e]" />
+                    <span className="size-2.5 rounded-full bg-[#9ab39b]" />
+                    <span className="ml-3 hidden text-[10px] font-medium tracking-[0.12em] text-[#9c8775] sm:block">
+                      APP.ANSILUM.ID / REPORT
+                    </span>
+                  </div>
+                  <div className="relative h-[21rem] overflow-hidden bg-[#f9f1e9] sm:h-[26rem]">
+                    <Image
+                      src="/product/sales-report.png"
+                      alt="Pratinjau laporan penjualan Ansilum dengan data contoh"
+                      width={440}
+                      height={860}
+                      priority
+                      unoptimized
+                      className="absolute left-1/2 top-4 w-[13.5rem] -translate-x-1/2 rounded-[1.4rem] shadow-[0_20px_35px_-18px_#69452e99] sm:top-6 sm:w-[16rem]"
+                    />
+                  </div>
+                </div>
+                <div className="absolute -left-3 top-20 hidden items-center gap-2 rounded-full border border-[#d6c0ab] bg-[#fffaf6] px-3 py-2 text-xs font-semibold text-[#63422f] shadow-lg sm:flex lg:-left-8">
+                  <span className="flex size-6 items-center justify-center rounded-full bg-[#e4f0df] text-[#47704b]">
+                    <WifiIcon className="size-3.5" aria-hidden="true" />
+                  </span>
+                  Offline-first
+                </div>
+                <div className="absolute -right-3 bottom-20 hidden items-center gap-2 rounded-full border border-[#d6c0ab] bg-[#fffaf6] px-3 py-2 text-xs font-semibold text-[#63422f] shadow-lg sm:flex lg:-right-8">
+                  <span className="flex size-6 items-center justify-center rounded-full bg-[#f6dfc4] text-[#8a5b2e]">
+                    <ChartBarIcon className="size-3.5" aria-hidden="true" />
+                  </span>
+                  Penjualan lebih terbaca
+                </div>
+              </div>
+              <div className="mt-5 flex items-center justify-between gap-4 px-1 text-xs leading-5 text-[#66503e]">
+                <span className="font-medium">Laporan operasional dalam satu tampilan.</span>
+                <span className="shrink-0 text-right text-[#8a7564]">
+                  Data contoh · Early Beta
+                </span>
+              </div>
             </div>
           </div>
         </Container>
@@ -93,29 +134,7 @@ export default function Home() {
         </Container>
       </div>
       <Section id="cara-kerja">
-        <div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
-          <SectionTitle
-            eyebrow="Cara kerja offline-first"
-            title="Pesanan disimpan di kasir. Sinkronisasi menyusul."
-          >
-            <p>
-              Pekerjaan kasir inti dirancang memakai data pada perangkat yang
-              sudah disiapkan. Pencatatan transaksi dan pengiriman ke cloud
-              memiliki proses masing-masing.
-            </p>
-          </SectionTitle>
-          <TextLink href="/products/ansilum#offline">
-            Lihat cakupan produk
-          </TextLink>
-        </div>
-        <div className="mt-9">
-          <OfflineFlow />
-        </div>
-        <p className="mt-5 max-w-4xl text-xs leading-6 text-muted-foreground">
-          Penjelasan alur produk, bukan rekaman transaksi. Penyiapan awal dan
-          otorisasi perangkat yang masih berlaku diperlukan. QRIS, kartu, dan
-          gateway tetap mengikuti koneksi serta konfirmasi penyedianya.
-        </p>
+        <OfflineFlowScroll />
       </Section>
       <Section className="border-y border-[var(--marketing-line)] bg-[var(--marketing-paper)]">
         <SectionTitle
