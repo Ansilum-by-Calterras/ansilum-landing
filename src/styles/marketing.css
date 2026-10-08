@@ -1,12 +1,7 @@
 @tailwind components;
 
-:root {
-  --marketing-paper: #f5f0e9;
-  --marketing-line: #ded5c9;
-  --font-mono: ui-monospace;
-}
 html {
-  scroll-padding-top: 7rem;
+  scroll-padding-top: 6rem;
 }
 body {
   overflow-wrap: break-word;
@@ -15,8 +10,9 @@ body {
   box-sizing: border-box;
 }
 :focus-visible {
-  outline: 2px solid #765134;
-  outline-offset: 5px;
+  outline: 3px solid #ff5b1f;
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 .skip-link {
   position: fixed;
@@ -24,72 +20,422 @@ body {
   left: 16px;
   z-index: 100;
   padding: 12px 20px;
-  background: white;
-  color: #3e2723;
+  background: #ffffff;
+  color: #111418;
   transform: translateY(-150%);
-  border: 2px solid #765134;
+  border: 2px solid #111418;
   border-radius: 8px;
 }
 .skip-link:focus {
   transform: translateY(0);
 }
+
 @layer components {
-  .action-primary {
-    @apply inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#63422f] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#493024] disabled:cursor-wait disabled:opacity-60;
+  /* Actions */
+  .btn-primary {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-ink px-5 py-3 text-[0.95rem] font-semibold text-white transition-colors duration-150 hover:bg-brand-ink disabled:cursor-wait disabled:opacity-60;
   }
-  .action-secondary {
-    @apply inline-flex min-h-12 items-center justify-center gap-3 rounded-full border border-[#b3a08b] bg-transparent px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-white/60;
+  .btn-primary-light {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-white px-5 py-3 text-[0.95rem] font-semibold text-ink transition-colors duration-150 hover:bg-brand-soft;
   }
-  .eyebrow {
-    @apply text-xs font-semibold uppercase leading-5 tracking-[0.14em] text-[#765134];
+  .btn-secondary {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-line bg-white px-5 py-3 text-[0.95rem] font-semibold text-ink transition-colors duration-150 hover:border-ink;
   }
-  .section-space {
-    @apply py-14 sm:py-20;
+  .text-link {
+    @apply inline-flex min-h-11 items-center gap-1.5 font-semibold text-brand-ink transition-colors hover:text-ink;
   }
-  .section-title {
-    @apply font-display text-3xl font-medium leading-[1.15] tracking-[-0.045em] text-foreground sm:text-4xl lg:text-[2.75rem];
+
+  /* Type: one sans family, set tight and heavy for headings. */
+  .display-xl {
+    @apply text-[2.5rem] font-bold leading-[1.05] tracking-[-0.04em] sm:text-6xl lg:text-[4.5rem];
   }
-  .page-title {
-    @apply font-display text-4xl font-medium leading-[1.12] tracking-[-0.055em] sm:text-5xl lg:text-6xl;
+  .display-lg {
+    @apply text-[2rem] font-bold leading-[1.1] tracking-[-0.035em] sm:text-[2.75rem] lg:text-[3.25rem];
   }
-  .section-lead {
-    @apply text-base leading-8 text-muted-foreground sm:text-lg;
+  .display-md {
+    @apply text-[1.6rem] font-bold leading-[1.15] tracking-[-0.03em] sm:text-[2rem];
   }
-  .surface-card {
-    @apply rounded-2xl border border-[var(--marketing-line)] bg-white;
+  .lead {
+    @apply text-lg leading-8 text-soft sm:text-xl sm:leading-9;
   }
+
+  /* Product UI */
+  .ui-window {
+    @apply rounded-2xl border border-line bg-white shadow-[0_24px_64px_-28px_rgb(17_20_24/0.35)];
+  }
+  .ui-chip {
+    @apply inline-flex min-h-10 items-center rounded-lg border border-line bg-white px-3.5 py-2 text-left text-sm font-medium text-ink transition-colors hover:border-ink aria-pressed:border-ink aria-pressed:bg-ink aria-pressed:text-white;
+  }
+  .caption {
+    @apply text-sm leading-6 text-soft;
+  }
+
+  /* Forms */
   .field-label {
-    @apply mb-2 block text-sm font-medium text-foreground;
+    @apply mb-2 block text-sm font-semibold text-ink;
   }
   .form-input {
-    @apply min-h-12 w-full rounded-xl border border-[#bcab97] bg-white px-4 py-3 text-base text-foreground shadow-none outline-offset-2 focus:border-[#63422f] focus:ring-1 focus:ring-[#63422f];
+    @apply min-h-12 w-full rounded-lg border border-line bg-white px-4 py-3 text-base text-ink shadow-none outline-offset-2 focus:border-ink focus:ring-1 focus:ring-ink aria-[invalid=true]:border-brand-ink;
   }
-  .editorial {
-    @apply max-w-3xl text-base leading-8 text-muted-foreground;
+
+  /* Long-form reading */
+  .prose-site {
+    @apply max-w-[46rem] text-[1.05rem] leading-8 text-soft;
   }
-  .editorial h2 {
-    @apply mb-4 mt-10 font-display text-2xl font-medium tracking-tight text-foreground;
+  .prose-site h2 {
+    @apply mb-4 mt-14 text-[1.6rem] font-bold leading-tight tracking-[-0.03em] text-ink;
   }
-  .editorial h3 {
-    @apply mb-3 mt-6 text-lg font-semibold text-foreground;
+  .prose-site h3 {
+    @apply mb-3 mt-8 text-lg font-semibold text-ink;
   }
-  .editorial p {
+  .prose-site p {
     @apply my-4;
   }
-  .editorial ul,
-  .editorial ol {
+  .prose-site ul,
+  .prose-site ol {
     @apply my-5 space-y-3 pl-5;
   }
-  .editorial ul {
-    @apply list-disc;
+  .prose-site ul {
+    @apply list-disc marker:text-brand;
   }
-  .editorial ol {
-    @apply list-decimal;
+  .prose-site ol {
+    @apply list-decimal marker:font-semibold marker:text-ink;
   }
-  .editorial a {
-    @apply font-medium text-foreground underline underline-offset-4;
+  .prose-site a {
+    @apply font-semibold text-brand-ink underline decoration-1 underline-offset-4;
+  }
+  .prose-site strong {
+    @apply font-semibold text-ink;
   }
 }
+
+/*
+ * Motion. Everything animates transform, opacity, filter, or stroke offsets only, so nothing
+ * triggers layout while it moves (the cause of the earlier jitter). Hidden start states apply only
+ * when scripts run (`.js`) and motion is allowed; looping animations pause while off screen.
+ */
+
+/* Cloudflare-style guide lines framing the content column. */
+.guide-lines {
+  pointer-events: none;
+  position: fixed;
+  inset: 0 auto 0 50%;
+  z-index: 1;
+  display: none;
+  width: min(100%, 80rem);
+  transform: translateX(-50%);
+  --dash: linear-gradient(to bottom, rgb(17 20 24 / 0.1) 55%, transparent 0) 0 0 / 1px 9px repeat-y;
+  background: var(--dash), var(--dash);
+  background-position: left top, right top;
+}
+@media (min-width: 1024px) {
+  .guide-lines {
+    display: block;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes word-in {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.4em);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+@keyframes bubble-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+@keyframes thinking-out {
+  0%,
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes dot-bounce {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.35;
+  }
+  30% {
+    transform: translateY(-3px);
+    opacity: 1;
+  }
+}
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+}
+@keyframes grow-y {
+  from {
+    transform: scaleY(0);
+  }
+}
+/* A pulse travelling along a path drawn with pathLength="100" and stroke-dasharray="8 200". */
+@keyframes pulse-run {
+  from {
+    stroke-dashoffset: 8;
+  }
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+@keyframes dash-march {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+@keyframes draw {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes ping {
+  from {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  to {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+@keyframes steam {
+  0% {
+    transform: translateY(4px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+@keyframes stripes {
+  to {
+    transform: translateY(-24px);
+  }
+}
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes print {
+  from {
+    transform: translateY(-100%);
+  }
+}
+@keyframes underline-in {
+  from {
+    background-size: 0% 2px;
+  }
+}
+/* Answer phrases linked to the chart: one continuous underline that can draw in left to right. */
+.seg-line {
+  background-image: linear-gradient(var(--seg-line, rgb(255 91 31 / 0.5)), var(--seg-line, rgb(255 91 31 / 0.5)));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 2px;
+  padding-bottom: 2px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+@keyframes rule-run {
+  from {
+    transform: translateX(-20%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+.print {
+  transform-box: fill-box;
+}
+
+.motion-fade {
+  animation: fade-in 240ms ease-out both;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Scroll reveals: fade, lift, and un-blur once. */
+  .js [data-reveal]:not([data-reveal='none']):not(.is-in) {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(6px);
+  }
+  [data-reveal]:not([data-reveal='none']) {
+    transition:
+      opacity 700ms cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1),
+      filter 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: var(--delay, 0ms);
+  }
+
+  /* Headline words rise in on load. */
+  .js .word-rise {
+    display: inline-block;
+    animation: rise-in 800ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: calc(var(--i) * 60ms + 80ms);
+  }
+
+  /* The assistant's answer types in word by word, left to right, sharpening from a blur. */
+  .js [data-typing]:not(.is-in) :is(.tw, .bubble, .after-typing, .thinking) {
+    opacity: 0;
+    animation: none;
+  }
+  .js [data-typing]:not(.is-in) :is(.bar-x, .bar-y) {
+    transform: scale(0);
+  }
+  [data-typing] .bubble {
+    animation: bubble-in 450ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  [data-typing] .thinking {
+    animation: thinking-out 900ms ease-out both;
+  }
+  [data-typing] .tw {
+    animation: word-in 450ms ease-out both;
+    animation-delay: calc(900ms + var(--i) * 32ms);
+  }
+  .js [data-typing]:not(.is-in) .seg-line {
+    background-size: 0% 2px;
+  }
+  [data-typing] .seg-line {
+    animation: underline-in 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: calc(1000ms + var(--end) * 32ms);
+  }
+  [data-typing] .after-typing {
+    animation: rise-in 500ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: calc(1100ms + var(--words) * 32ms + var(--i, 0) * 120ms);
+  }
+  [data-typing] .bar-x {
+    animation: grow-x 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: calc(300ms + var(--i, 0) * 90ms);
+  }
+  [data-typing] .bar-y {
+    animation: grow-y 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: calc(300ms + var(--i, 0) * 60ms);
+  }
+
+  /* Line art. */
+  .pulse {
+    stroke-dasharray: 8 200;
+    animation: pulse-run var(--dur, 3.2s) cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    animation-delay: var(--delay, 0s);
+  }
+  .dash-march {
+    animation: dash-march 1.2s linear infinite;
+  }
+  .ping {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: ping 2.4s cubic-bezier(0.2, 0.7, 0.2, 1) infinite;
+    animation-delay: var(--delay, 0s);
+  }
+  .steam {
+    animation: steam 2.6s ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
+  }
+  .float {
+    animation: float 5s ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
+  }
+  .stripes {
+    animation: stripes 1.6s linear infinite;
+  }
+  .twinkle {
+    animation: twinkle var(--dur, 3s) ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
+  }
+  .js [data-reveal] .draw {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+  }
+  [data-reveal].is-in .draw {
+    animation: draw 1.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+    animation-delay: var(--delay, 0s);
+  }
+  .js [data-reveal]:not(.is-in) .print {
+    transform: translateY(-100%);
+  }
+  [data-reveal].is-in .print {
+    animation: print 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: var(--delay, 300ms);
+  }
+
+  /* Loops pause while their section is off screen. */
+  [data-anim]:not(.is-playing),
+  [data-anim]:not(.is-playing) * {
+    animation-play-state: paused !important;
+  }
+
+  /* Small hover delights. */
+  .btn-primary svg,
+  .btn-secondary svg,
+  .text-link svg {
+    transition: transform 200ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .btn-primary:hover svg,
+  .btn-secondary:hover svg,
+  .text-link:hover svg {
+    transform: translateX(3px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto !important;
@@ -98,7 +444,12 @@ body {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  .pulse,
+  .ping {
+    display: none;
   }
 }

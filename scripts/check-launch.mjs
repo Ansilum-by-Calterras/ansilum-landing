@@ -20,13 +20,6 @@ if (
   )
 )
   issues.push('Set a monitored company email (NEXT_PUBLIC_CONTACT_EMAIL).')
-for (const [key, name] of [
-  ['NEXT_PUBLIC_FOUNDER_NAME', 'public founder name'],
-  ['NEXT_PUBLIC_FOUNDER_PROFILE', 'public founder profile'],
-  ['NEXT_PUBLIC_COMPANY_CITY', 'operating city'],
-  ['NEXT_PUBLIC_COMPANY_SINCE', 'operating start year'],
-])
-  if (!process.env[key]) issues.push(`Confirm the ${name} (${key}).`)
 const webhook = process.env.DEMO_INTAKE_URL
 if (
   webhook

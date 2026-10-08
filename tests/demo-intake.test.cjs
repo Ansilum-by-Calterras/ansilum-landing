@@ -28,12 +28,13 @@ const sample = () => ({
   requestId: randomUUID(),
   name: 'Uji Internal',
   business: 'Kafe Pengujian',
-  businessType: 'Kafe / kedai kopi',
+  locale: 'id',
+  businessType: 'coffee',
   outlets: '1',
   city: 'Kota Uji',
   contactMethod: 'whatsapp',
   contact: '081234567890',
-  challenge: 'Laporan',
+  challenge: 'understand-sales',
   notes: '',
   consent: true,
 })
@@ -52,6 +53,13 @@ test('normalizes Indonesian contact numbers without retaining unknown fields', (
   assert.equal(result.data.contact, '+6281234567890')
   assert.equal(result.data.name, 'Uji Internal')
   assert.equal(result.data.extra, undefined)
+})
+test('returns English messages for English requests and keeps the locale', () => {
+  const ok = validateDemo({ ...sample(), locale: 'en', outlets: '6+' })
+  assert.equal(ok.data.locale, 'en')
+  const result = validateDemo({ ...sample(), locale: 'en', businessType: 'Kafe / kedai kopi' })
+  assert.match(result.errors.businessType, /Choose your type of business/)
+  assert.match(validateDemo({ ...sample(), consent: false }).errors.consent, /Persetujuan/)
 })
 test('rejects malformed identifiers, missing consent, invalid contact, and oversized notes', () => {
   const result = validateDemo({
@@ -84,7 +92,7 @@ test('concurrent retries publish one durable record; changed payload cannot over
     await fs.readFile(path.join(directory, `${data.requestId}.json`), 'utf8'),
   )
   assert.equal(stored.contact, '+6281234567890')
-  assert.equal(stored.policyVersion, '2026-10-08')
+  assert.equal(stored.policyVersion, '2026-10-09')
   assert.equal(
     (await fs.stat(path.join(directory, `${data.requestId}.json`))).mode &
       0o777,

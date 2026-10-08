@@ -14,23 +14,17 @@ function publicUrl(value: string | undefined) {
 export const siteConfig = {
   name: 'Ansilum',
   company: 'Calterras',
-  description:
-    'POS Early Beta untuk kafe dan restoran Indonesia, dengan pendekatan offline-first dan fokus pada visibilitas operasional.',
+  /** Founder-confirmed on 9 October 2026. */
+  started: { iso: '2024-03', en: 'March 2024', id: 'Maret 2024' },
+  productDomain: 'ansilum.com',
   url: publicUrl(configuredUrl)?.origin,
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || undefined,
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP?.replace(/\D/g, '') || undefined,
-  founder: process.env.NEXT_PUBLIC_FOUNDER_NAME || undefined,
+  /** Founder-confirmed on 9 October 2026. */
+  founder: process.env.NEXT_PUBLIC_FOUNDER_NAME || 'Saifulloh Fadli',
   founderProfile: publicUrl(process.env.NEXT_PUBLIC_FOUNDER_PROFILE)?.href,
   companyProfile: publicUrl(process.env.NEXT_PUBLIC_COMPANY_PROFILE)?.href,
   city: process.env.NEXT_PUBLIC_COMPANY_CITY || undefined,
-  since: process.env.NEXT_PUBLIC_COMPANY_SINCE || undefined,
   appUrl: publicUrl(process.env.NEXT_PUBLIC_APP_URL)?.href,
   analytics: process.env.NEXT_PUBLIC_ANALYTICS_ENABLED === 'true',
 }
-export const contactConfig = { email: siteConfig.email }
-export const navigation = [
-  { name: 'Produk', href: '/products/ansilum' },
-  { name: 'Cara kerja', href: '/#cara-kerja' },
-  { name: 'Status produk', href: '/#status-produk' },
-  { name: 'Tentang Calterras', href: '/about' },
-]

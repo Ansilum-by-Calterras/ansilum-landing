@@ -9,11 +9,11 @@ export function Logo({
   return (
     <span
       className={clsx(
-        'font-display text-[1.65rem] font-semibold tracking-[-0.065em] text-foreground',
+        ' text-[1.7rem] font-semibold tracking-[-0.04em] text-ink',
         className,
       )}
     >
-      ansilum<span className="text-primary">.</span>
+      ansilum<span className="text-brand">.</span>
     </span>
   )
 }
@@ -21,7 +21,7 @@ export function Mark({ className }: { className?: string }) {
   return (
     <span
       className={clsx(
-        'font-display text-3xl font-semibold text-foreground',
+        ' text-3xl font-semibold text-foreground',
         className,
       )}
       aria-label="Ansilum"

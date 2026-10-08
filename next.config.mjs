@@ -2,17 +2,26 @@
 const nextConfig = {
   poweredByHeader: false,
   async redirects() {
-    return [
-      { source: '/company', destination: '/about', permanent: true },
+    // Earlier public URLs. Unprefixed paths without an entry here are localized by the middleware.
+    const legacy = [
+      ['/company', '/about'],
+      ['/our-products', '/product'],
+      ['/products/ansilum', '/product'],
+      ['/intelligence', '/product'],
+      ['/contactus', '/demo'],
+      ['/term-of-service', '/privacy'],
+      ['/blog', '/updates'],
+      ['/blog/:slug*', '/updates'],
+      ['/feed.xml', '/updates'],
+    ]
+    return legacy.flatMap(([source, destination]) => [
+      { source, destination: `/id${destination}`, permanent: true },
       {
-        source: '/our-products',
-        destination: '/products/ansilum',
+        source: `/:locale(en|id)${source}`,
+        destination: `/:locale${destination}`,
         permanent: true,
       },
-      { source: '/contactus', destination: '/demo', permanent: true },
-      { source: '/term-of-service', destination: '/privacy', permanent: true },
-      { source: '/feed.xml', destination: '/blog/feed.xml', permanent: true },
-    ]
+    ])
   },
   async headers() {
     return [
