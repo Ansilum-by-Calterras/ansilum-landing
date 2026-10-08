@@ -11,53 +11,58 @@ import {
   useSpring,
   type HTMLMotionProps,
 } from 'framer-motion'
-import { useCallback, useLayoutEffect, useRef, useState } from 'react'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import useMeasure, { type RectReadOnly } from 'react-use-measure'
 import { Container } from './container'
 import { Link } from './link'
 import { Heading, Subheading } from './text'
 
+gsap.registerPlugin(ScrollTrigger)
+
 const testimonials = [
   {
     img: '/testimonials/tina-yards.jpg',
     name: 'Tina Yards',
-    title: 'VP of Sales, Protocol',
+    title: 'Operations Manager, Kopi Nusantara',
     quote:
-      'Thanks to Calterras, we’re finding new leads that we never would have found with legal methods.',
+      'TerraPOS gave us full visibility across all 12 outlets. We spotted a slow-moving SKU chain-wide and cleared it in a week  —  something that used to take a full audit.',
   },
   {
     img: '/testimonials/conor-neville.jpg',
     name: 'Conor Neville',
-    title: 'Head of Customer Success, TaxPal',
+    title: 'Owner, Brew & Bites Café',
     quote:
-      'Calterras made undercutting all of our competitors an absolute breeze.',
+      'The COGS tracking alone paid for the subscription. I finally know which menu items are actually profitable, not just popular.',
   },
   {
     img: '/testimonials/amy-chase.jpg',
     name: 'Amy Chase',
-    title: 'Head of GTM, Pocket',
+    title: 'Head of F&B, Pocket Hotels Group',
     quote:
-      'We closed a deal in literally a few minutes because we knew their exact budget.',
+      'We rolled TerraPOS across 5 hotel restaurants in under a day. The multi-tenant setup is seamless  —  each property has its own data but I can view everything from one login.',
   },
   {
     img: '/testimonials/veronica-winton.jpg',
     name: 'Veronica Winton',
-    title: 'CSO, Planeteria',
+    title: 'CEO, Planeteria Retail Chain',
     quote:
-      'We’ve managed to put two of our main competitors out of business in 6 months.',
+      'The AI sales forecast was surprisingly accurate from week one. We cut food waste by 30% in the first month just by ordering smarter.',
   },
   {
     img: '/testimonials/dillon-lenora.jpg',
     name: 'Dillon Lenora',
-    title: 'VP of Sales, Detax',
-    quote: 'I was able to replace 80% of my team with CalterrasAI bots.',
+    title: 'Head of Tech, Detax Restaurant Group',
+    quote:
+      'TerraPOS AI reports replaced our entire manual weekly reporting process. What used to take our team half a day now happens automatically overnight.',
   },
   {
     img: '/testimonials/harriet-arron.jpg',
     name: 'Harriet Arron',
-    title: 'Account Manager, Commit',
+    title: 'Franchise Director, Commit Food Co.',
     quote:
-      'I’ve smashed all my targets without having to speak to a lead in months.',
+      'Rolling out new pricing across 30 franchisee outlets used to be a nightmare. With TerraPOS I push updates centrally and every outlet is live in minutes.',
   },
 ]
 
@@ -142,7 +147,7 @@ function TestimonialCard({
         <figcaption className="mt-6 border-t border-white/20 pt-6">
           <p className="text-sm/6 font-medium text-white">{name}</p>
           <p className="text-sm/6 font-medium">
-            <span className="bg-gradient-to-r from-[#fff1be] from-[28%] via-[#ee87cb] via-[70%] to-[#b060ff] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[var(--chart-2)] from-[28%] via-[var(--primary)] via-[70%] to-[var(--sidebar)] bg-clip-text text-transparent">
               {title}
             </span>
           </p>
@@ -156,8 +161,7 @@ function CallToAction() {
   return (
     <div>
       <p className="max-w-sm text-sm/6 text-gray-600">
-        Join the best sellers in the business and start using Calterras to hit
-        your targets today.
+        Join hundreds of businesses already using TerraPOS to run smarter operations and grow with confidence.
       </p>
       <div className="mt-2">
         <Link
@@ -177,6 +181,28 @@ export function Testimonials() {
   let { scrollX } = useScroll({ container: scrollRef })
   let [setReferenceWindowRef, bounds] = useMeasure()
   let [activeIndex, setActiveIndex] = useState(0)
+  const headingRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const el = headingRef.current
+    if (!el) return
+
+    const ctx = gsap.context(() => {
+      gsap.from(el, {
+        opacity: 0,
+        y: 40,
+        duration: 0.9,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 88%',
+          toggleActions: 'play none none none',
+        },
+      })
+    })
+
+    return () => ctx.revert()
+  }, [])
 
   useMotionValueEvent(scrollX, 'change', (x) => {
     setActiveIndex(Math.floor(x / scrollRef.current!.children[0].clientWidth))
@@ -192,10 +218,12 @@ export function Testimonials() {
     <div className="overflow-hidden py-32">
       <Container>
         <div ref={setReferenceWindowRef}>
-          <Subheading>What everyone is saying</Subheading>
-          <Heading as="h3" className="mt-2">
-            Trusted by professionals.
-          </Heading>
+          <div ref={headingRef}>
+            <Subheading>What everyone is saying</Subheading>
+            <Heading as="h3" className="mt-2">
+              Trusted by professionals.
+            </Heading>
+          </div>
         </div>
       </Container>
       <div

@@ -1,99 +1,110 @@
 'use client'
-
+import { navigation, siteConfig } from '@/config/site'
 import {
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
 } from '@headlessui/react'
-import { Bars2Icon } from '@heroicons/react/24/solid'
-import { motion } from 'framer-motion'
-import { Link } from './link'
+import {
+  ArrowUpRightIcon,
+  Bars2Icon,
+  XMarkIcon,
+} from '@heroicons/react/24/outline'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { Logo } from './logo'
-import { PlusGrid, PlusGridItem, PlusGridRow } from './plus-grid'
-import { navItems } from '@/data/links'
-
-function DesktopNav() {
-  return (
-    <nav className="relative hidden lg:flex">
-      {navItems.map(({ link, name }) => (
-        <PlusGridItem key={link} className="relative flex">
-          <Link
-            href={link}
-            className="flex items-center px-4 py-3 text-base font-medium text-gray-950 bg-blend-multiply data-[hover]:bg-black/[2.5%]"
-          >
-            {name}
-          </Link>
-        </PlusGridItem>
-      ))}
-    </nav>
-  )
-}
-
-function MobileNavButton() {
-  return (
-    <DisclosureButton
-      className="flex size-12 items-center justify-center self-center rounded-lg data-[hover]:bg-black/5 lg:hidden"
-      aria-label="Open main menu"
-    >
-      <Bars2Icon className="size-6" />
-    </DisclosureButton>
-  )
-}
-
-function MobileNav() {
-  return (
-    <DisclosurePanel className="lg:hidden">
-      <div className="flex flex-col gap-6 py-4">
-        {navItems.map(({ link, name }, linkIndex) => (
-          <motion.div
-            initial={{ opacity: 0, rotateX: -90 }}
-            animate={{ opacity: 1, rotateX: 0 }}
-            transition={{
-              duration: 0.15,
-              ease: 'easeInOut',
-              rotateX: { duration: 0.3, delay: linkIndex * 0.1 },
-            }}
-            key={link}
-          >
-            <Link href={link} className="text-base font-medium text-gray-950">
-              {name}
-            </Link>
-          </motion.div>
-        ))}
-      </div>
-      <div className="absolute left-1/2 w-screen -translate-x-1/2">
-        <div className="absolute inset-x-0 top-0 border-t border-black/5" />
-        <div className="absolute inset-x-0 top-2 border-t border-black/5" />
-      </div>
-    </DisclosurePanel>
-  )
-}
-
-export function Navbar({ banner }: { banner?: React.ReactNode }) {
+import { DemoLink } from './marketing/demo-link'
+export function Navbar() {
+  const pathname = usePathname()
   return (
     <Disclosure
       as="header"
-      className="absolute top-0 left-0 w-full z-10 backdrop-blur-lg bg-white/20"
+      className="site-header bg-background/95 sticky top-0 z-50 border-b border-[var(--marketing-line)] backdrop-blur-md"
     >
-      <PlusGrid className="max-w-screen-2xl mx-auto px-7 lg:px-8">
-        <PlusGridRow className="relative flex justify-between">
-          <div className="relative flex gap-6">
-            <PlusGridItem className="py-3">
-              <Link href="/" title="Home">
-                <Logo />
-              </Link>
-            </PlusGridItem>
-            {banner && (
-              <div className="relative hidden items-center py-3 lg:flex">
-                {banner}
-              </div>
-            )}
+      {({ open, close }) => (
+        <>
+          <div className="mx-auto flex min-h-20 max-w-7xl items-center justify-between gap-6 px-6 lg:px-8">
+            <Link
+              href="/"
+              aria-label="Ansilum, beranda"
+              onClick={() => close()}
+            >
+              <Logo />
+            </Link>
+            <nav
+              aria-label="Navigasi utama"
+              className="hidden items-center gap-7 lg:flex"
+            >
+              {navigation.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={pathname === item.href ? 'page' : undefined}
+                  className="text-sm font-medium text-muted-foreground transition hover:text-foreground aria-[current=page]:text-foreground"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </nav>
+            <div className="flex items-center gap-4">
+              {siteConfig.appUrl && (
+                <a
+                  href={siteConfig.appUrl}
+                  className="hidden text-sm font-medium lg:block"
+                >
+                  Masuk
+                </a>
+              )}
+              <DemoLink
+                placement="header"
+                className="hidden min-h-11 sm:inline-flex"
+              >
+                Minta Demo{' '}
+                <ArrowUpRightIcon className="size-4" aria-hidden="true" />
+              </DemoLink>
+              <DisclosureButton
+                className="flex size-11 items-center justify-center rounded-full border border-[var(--marketing-line)] lg:hidden"
+                aria-label={open ? 'Tutup navigasi' : 'Buka navigasi'}
+              >
+                {open ? (
+                  <XMarkIcon className="size-5" />
+                ) : (
+                  <Bars2Icon className="size-5" />
+                )}
+              </DisclosureButton>
+            </div>
           </div>
-          <DesktopNav />
-          <MobileNavButton />
-        </PlusGridRow>
-      </PlusGrid>
-      <MobileNav />
+          <DisclosurePanel className="border-t border-[var(--marketing-line)] bg-background px-6 py-6 lg:hidden">
+            <nav
+              aria-label="Navigasi seluler"
+              className="mx-auto flex max-w-2xl flex-col gap-2"
+            >
+              {navigation.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => close()}
+                  className="rounded-lg px-3 py-3 font-medium"
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <DemoLink
+                placement="mobile-menu"
+                onClick={() => close()}
+                className="mt-3"
+              >
+                Minta Demo
+              </DemoLink>
+              {siteConfig.appUrl && (
+                <a href={siteConfig.appUrl} className="px-3 py-3">
+                  Masuk ke aplikasi
+                </a>
+              )}
+            </nav>
+          </DisclosurePanel>
+        </>
+      )}
     </Disclosure>
-  );
+  )
 }

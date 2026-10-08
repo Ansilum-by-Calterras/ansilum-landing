@@ -1,65 +1,34 @@
-import { image } from '@/sanity/image'
-import { getPostsForFeed } from '@/sanity/queries'
+import { siteConfig } from '@/config/site'
+import { articleAuthor, articleDate, articles } from '@/data/articles'
 import { Feed } from 'feed'
-import assert from 'node:assert'
-
-export async function GET(req: Request) {
-  let siteUrl = new URL(req.url).origin
-
-  let feed = new Feed({
-    title: 'The Calterras Blog',
-    description:
-      'Stay informed with product updates, company news, and insights on how to sell smarter at your company.',
-    author: {
-      name: 'Michael Foster',
-      email: 'michael.foster@example.com',
-    },
-    id: siteUrl,
-    link: siteUrl,
-    image: `${siteUrl}/favicon.ico`,
-    favicon: `${siteUrl}/favicon.ico`,
-    copyright: `All rights reserved ${new Date().getFullYear()}`,
-    feedLinks: {
-      rss2: `${siteUrl}/feed.xml`,
-    },
+export const dynamic = 'force-dynamic'
+export function GET(request: Request) {
+  const origin = siteConfig.url || new URL(request.url).origin
+  const feed = new Feed({
+    title: 'Catatan Calterras — Ansilum',
+    description: 'Panduan operasional untuk pemilik usaha F&B Indonesia.',
+    id: `${origin}/blog`,
+    link: `${origin}/blog`,
+    language: 'id',
+    author: { name: articleAuthor },
+    copyright: `© ${new Date().getFullYear()} Calterras`,
+    feedLinks: { rss2: `${origin}/blog/feed.xml` },
   })
-
-  let posts = await getPostsForFeed()
-
-  posts.forEach((post: any) => {
-    try {
-      assert(typeof post.title === 'string')
-      assert(typeof post.slug === 'string')
-      assert(typeof post.excerpt === 'string')
-      assert(typeof post.publishedAt === 'string')
-    } catch (error) {
-      console.log('Post is missing required fields for RSS feed:', post)
-      return
-    }
-
+  articles.forEach((article) =>
     feed.addItem({
-      title: post.title,
-      id: post.slug,
-      link: `${siteUrl}/blog/${post.slug}`,
-      content: post.excerpt,
-      image: post.mainImage
-        ? image(post.mainImage)
-            .size(1200, 800)
-            .format('jpg')
-            .url()
-            .replaceAll('&', '&amp;')
-        : undefined,
-      author: post.author?.name ? [{ name: post.author.name }] : [],
-      contributor: post.author?.name ? [{ name: post.author.name }] : [],
-      date: new Date(post.publishedAt),
-    })
-  })
-
+      title: article.title,
+      id: `${origin}/blog/${article.slug}`,
+      link: `${origin}/blog/${article.slug}`,
+      description: article.description,
+      date: new Date(`${articleDate}T00:00:00+07:00`),
+      author: [{ name: articleAuthor }],
+    }),
+  )
   return new Response(feed.rss2(), {
-    status: 200,
     headers: {
-      'content-type': 'application/xml',
-      'cache-control': 's-maxage=31556952',
+      'Content-Type': 'application/rss+xml; charset=utf-8',
+      'Cache-Control': 'public, max-age=3600',
+      ...(!siteConfig.url ? { 'X-Robots-Tag': 'noindex' } : {}),
     },
   })
 }
