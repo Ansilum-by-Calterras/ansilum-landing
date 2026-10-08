@@ -17,9 +17,9 @@
 </g>
 <defs>
 <linearGradient id="paint0_linear_695_918" x1="1.42208" y1="3.31862" x2="6.76397" y2="12.5705" gradientUnits="userSpaceOnUse">
-<stop stop-color="#5A62C3" style="stop-color:#5A62C3;stop-color:color(display-p3 0.3529 0.3843 0.7647);stop-opacity:1;"/>
-<stop offset="0.5" stop-color="#4D55BD" style="stop-color:#4D55BD;stop-color:color(display-p3 0.3020 0.3333 0.7412);stop-opacity:1;"/>
-<stop offset="1" stop-color="#3940AB" style="stop-color:#3940AB;stop-color:color(display-p3 0.2235 0.2510 0.6706);stop-opacity:1;"/>
+<stop stopColor="#5A62C3" style="stopColor:#5A62C3;stopColor:color(display-p3 0.3529 0.3843 0.7647);stop-opacity:1;"/>
+<stop offset="0.5" stopColor="#4D55BD" style="stopColor:#4D55BD;stopColor:color(display-p3 0.3020 0.3333 0.7412);stop-opacity:1;"/>
+<stop offset="1" stopColor="#3940AB" style="stopColor:#3940AB;stopColor:color(display-p3 0.2235 0.2510 0.6706);stop-opacity:1;"/>
 </linearGradient>
 <clipPath id="clip0_695_918">
 <rect width="16" height="16" fill="white" style="fill:white;fill-opacity:1;"/>

@@ -1,8 +1,13 @@
 'use client'
 
 import { clsx } from 'clsx'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 import { motion } from 'framer-motion'
+import { useEffect, useRef } from 'react'
 import { Subheading } from './text'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export function BentoCard({
   dark = false,
@@ -12,6 +17,7 @@ export function BentoCard({
   description,
   graphic,
   fade = [],
+  animateDelay = 0,
 }: {
   dark?: boolean
   className?: string
@@ -20,9 +26,35 @@ export function BentoCard({
   description: React.ReactNode
   graphic: React.ReactNode
   fade?: ('top' | 'bottom')[]
+  animateDelay?: number
 }) {
+  const cardRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const el = cardRef.current
+    if (!el) return
+
+    const ctx = gsap.context(() => {
+      gsap.from(el, {
+        opacity: 0,
+        y: 50,
+        duration: 0.9,
+        delay: animateDelay,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 90%',
+          toggleActions: 'play none none none',
+        },
+      })
+    })
+
+    return () => ctx.revert()
+  }, [animateDelay])
+
   return (
     <motion.div
+      ref={cardRef}
       initial="idle"
       whileHover="active"
       variants={{ idle: {}, active: {} }}

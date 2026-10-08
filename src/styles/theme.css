@@ -1,0 +1,149 @@
+/* ==========================================================================
+   TERRAPOS DESIGN TOKENS — Single source of truth for all colors & theme
+   ========================================================================== */
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.985 0 0);              /* #FAFAFA */
+  --foreground: oklch(0.300 0.036 30.2);        /* #3E2723 Dark Coffee */
+  --card: oklch(100% 0.00011 271.152);                     /* #E7E7E7 */
+  --card-foreground: oklch(0.300 0.036 30.2);   /* #3E2723 */
+  --popover: oklch(0.928 0 0);                  /* #E7E7E7 */
+  --popover-foreground: oklch(0.300 0.036 30.2); /* #3E2723 */
+  --primary: oklch(0.620 0.070 59.1);           /* #A67C5B Darker Brown */
+  --primary-foreground: oklch(0.985 0 0);       /* near white */
+  --secondary: oklch(0.727 0.048 63.7);         /* #BDA188 */
+  --secondary-foreground: oklch(0.300 0.036 30.2); /* #3E2723 */
+  --muted: oklch(0.928 0 0);                    /* #E7E7E7 card */
+  --muted-foreground: oklch(0.402 0.044 37.9);  /* #5D4037 */
+  --accent: oklch(0.727 0.048 63.7);            /* #BDA188 secondary */
+  --accent-foreground: oklch(0.300 0.036 30.2); /* #3E2723 */
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.752 0.023 39.2);            /* #BCAAA4 divider */
+  --input: oklch(0.853 0.013 41.0);             /* #D7CCC8 disabled */
+  --ring: oklch(0.620 0.070 59.1);              /* #A67C5B primary */
+  --chart-1: oklch(0.560 0.110 48.0);   /* espresso brown */
+  --chart-2: oklch(0.730 0.140 74.0);   /* golden amber */
+  --chart-3: oklch(0.550 0.150 24.0);   /* terracotta clay */
+  --chart-4: oklch(0.560 0.095 148.0);  /* sage / earthy green */
+  --chart-5: oklch(0.470 0.065 243.0);  /* smoky slate (#34495E vibe) */
+  --success: oklch(0.68 0.2 145);
+  --success-foreground: oklch(0.99 0 0);
+  --warning: oklch(0.72 0.22 55);
+  --warning-foreground: oklch(0.18 0.015 265);
+  --sidebar: oklch(0.440 0.080 48.0);            /* deep espresso — darker than primary */
+  --sidebar-foreground: oklch(0.985 0 0);        /* near-white on deep espresso */
+  --sidebar-primary: oklch(0.620 0.070 59.1);    /* primary brown — active item highlight */
+  --sidebar-primary-foreground: oklch(0.985 0 0); /* near-white */
+  --sidebar-accent: oklch(0.520 0.075 52.0);     /* medium brown — hover state */
+  --sidebar-accent-foreground: oklch(0.985 0 0); /* near-white on hover */
+  --sidebar-border: oklch(0.350 0.065 44.0);     /* darker espresso border */
+  --sidebar-ring: oklch(0.985 0 0);              /* white focus ring */
+}
+
+.dark {
+  --background: oklch(0.107 0 0);               /* #040404 */
+  --foreground: oklch(1 0 0);                   /* #FFFFFF */
+  --card: oklch(23.503% 0.00003 271.152 / 0.664);                     /* #1E1E1E */
+  --card-foreground: oklch(1 0 0);              /* #FFFFFF */
+  --popover: oklch(0.235 0 0);                  /* #1E1E1E */
+  --popover-foreground: oklch(1 0 0);           /* #FFFFFF */
+  --primary: oklch(0.727 0.048 63.7);           /* #BDA188 Light Brown Accent */
+  --primary-foreground: oklch(0.107 0 0);       /* #040404 */
+  --secondary: oklch(0.620 0.070 59.1);         /* #A67C5B Darker Brown Accent */
+  --secondary-foreground: oklch(1 0 0);         /* #FFFFFF */
+  --muted: oklch(0.235 0 0);                    /* #1E1E1E card */
+  --muted-foreground: oklch(0.750 0.010 40.0);  /* warm medium gray */
+  --accent: oklch(0.620 0.070 59.1);            /* #A67C5B secondary */
+  --accent-foreground: oklch(1 0 0);            /* #FFFFFF */
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.300 0.036 30.2);            /* #3E2723 dividerDark */
+  --input: oklch(0.300 0.036 30.2);             /* #3E2723 dividerDark */
+  --ring: oklch(0.727 0.048 63.7);              /* #BDA188 primaryDark */
+  --chart-1: oklch(0.730 0.100 58.0);   /* warm caramel */
+  --chart-2: oklch(0.800 0.140 78.0);   /* bright golden */
+  --chart-3: oklch(0.680 0.155 26.0);   /* warm terracotta */
+  --chart-4: oklch(0.700 0.115 148.0);  /* bright sage */
+  --chart-5: oklch(0.640 0.080 243.0);  /* warm slate blue */
+  --success: oklch(0.75 0.22 145);
+  --success-foreground: oklch(0.12 0.018 265);
+  --warning: oklch(0.78 0.24 55);
+  --warning-foreground: oklch(0.12 0.018 265);
+  --sidebar: oklch(0.380 0.060 46.0);            /* dark warm brown — darker primary shade */
+  --sidebar-foreground: oklch(0.985 0 0);        /* near-white on dark brown */
+  --sidebar-primary: oklch(0.550 0.065 55.0);    /* medium brown — active item highlight */
+  --sidebar-primary-foreground: oklch(0.985 0 0); /* near-white */
+  --sidebar-accent: oklch(0.460 0.070 50.0);     /* slightly lighter than bg — hover state */
+  --sidebar-accent-foreground: oklch(0.985 0 0); /* near-white on hover */
+  --sidebar-border: oklch(0.300 0.050 40.0);     /* darker border */
+  --sidebar-ring: oklch(0.985 0 0);              /* white focus ring */
+}
+
+/* ==========================================================================
+   Derived radius utilities
+   ========================================================================== */
+
+:root {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+}
+
+/* ==========================================================================
+   Gradient text utilities
+   ========================================================================== */
+
+.gradient-primary {
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-accent {
+  background: linear-gradient(
+    135deg,
+    var(--secondary),
+    oklch(0.500 0.060 45.0)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================================
+   Glassmorphism backdrop
+   ========================================================================== */
+
+.glass {
+  background: oklch(0.985 0 0 / 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.dark .glass {
+  background: oklch(0.235 0.01 59 / 0.7);
+}
+
+/* ==========================================================================
+   Sidebar gloss — diagonal sheen composited over the bg color
+   ========================================================================== */
+
+[data-sidebar='sidebar'] {
+  background:
+    linear-gradient(
+      160deg,
+      oklch(1 0 0 / 0.09) 0%,
+      oklch(1 0 0 / 0.03) 40%,
+      transparent 65%
+    ),
+    var(--sidebar);
+}
