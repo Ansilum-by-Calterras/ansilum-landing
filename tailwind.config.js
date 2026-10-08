@@ -12,16 +12,32 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans:    ['var(--font-inter)', 'sans-serif'],
-        display: ['var(--font-lexend)', 'sans-serif'],
-        manrope: ['var(--font-manrope)', 'sans-serif'],
-        serif:   ['var(--font-serif)', 'Georgia', 'serif'],
-        mono:    ['var(--font-mono)', 'ui-monospace', 'monospace'],
+        sans:    ['var(--font-sans)', 'system-ui', 'sans-serif'],
+        mono:    ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       borderRadius: {
         '4xl': '2rem',
       },
       colors: {
+        // Ansilum marketing palette: clean white surfaces and near-black text, with one warm
+        // brand orange for emphasis and data. Amber and green mark highlights and gains.
+        canvas:    '#FFFFFF',
+        mist:      '#F4F5F7',
+        line:      '#E3E6EB',
+        steel:     '#9AA4B2',
+        night:     '#0D1117',
+        ink:       '#111418',
+        soft:      '#545D6A',
+        brand: {
+          DEFAULT: '#FF5B1F',
+          ink:     '#C23D0C',
+          soft:    '#FFEEE6',
+        },
+        leaf: {
+          DEFAULT: '#12805A',
+          soft:    '#E2F5EC',
+        },
+        sun:       '#FFC53D',
         background:  'var(--background)',
         foreground:  'var(--foreground)',
         border:      'var(--border)',

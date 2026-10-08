@@ -1,36 +1,48 @@
 import { siteConfig } from '@/config/site'
+import { locales, localePath, ogLocale, type Locale } from '@/i18n/config'
 import type { Metadata } from 'next'
-export function pageMetadata(
-  title: string,
-  description: string,
-  path: string,
-): Metadata {
-  const url = siteConfig.url ? `${siteConfig.url}${path}` : undefined
+/** Locale-aware page metadata with reciprocal language alternates. `path` is locale-neutral. */
+export function pageMetadata({
+  locale,
+  path,
+  title,
+  description,
+}: {
+  locale: Locale
+  path: string
+  title: string
+  description: string
+}): Metadata {
+  const absolute = (target: Locale) =>
+    siteConfig.url ? `${siteConfig.url}${localePath(target, path)}` : undefined
+  const url = absolute(locale)
   return {
     title,
     description,
-    alternates: url ? { canonical: url } : undefined,
+    alternates: url
+      ? {
+          canonical: url,
+          languages: {
+            ...Object.fromEntries(locales.map((item) => [item, absolute(item)])),
+            'x-default': absolute('id'),
+          },
+        }
+      : undefined,
     openGraph: {
       title: `${title} | Ansilum`,
       description,
       url,
       siteName: 'Ansilum',
-      locale: 'id_ID',
+      locale: ogLocale[locale],
+      alternateLocale: locales
+        .filter((item) => item !== locale)
+        .map((item) => ogLocale[item]),
       type: 'website',
-      images: [
-        {
-          url: '/opengraph-image',
-          width: 1200,
-          height: 630,
-          alt: 'Ansilum — POS untuk kafe dan restoran. Early Beta. Dikembangkan oleh Calterras.',
-        },
-      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: `${title} | Ansilum`,
       description,
-      images: ['/opengraph-image'],
     },
   }
 }

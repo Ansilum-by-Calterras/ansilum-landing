@@ -1,6 +1,6 @@
 # Ansilum website
 
-Indonesian marketing website for **Ansilum**, an Early Beta F&B POS built by **Calterras**. The primary conversion is **Minta Demo**. Claude Intelligence is explicitly planned; this site does not claim a released AI integration.
+Bilingual marketing website for **Ansilum**, a cashier app with an AI assistant for Indonesian UMKM, built by **Calterras**. Indonesian lives at `/id` (the default) and English at `/en`. The primary conversion is **Minta demo / Request a demo**. The AI assistant is being built with Claude; the site shows it as a scripted example over sample data and does not call a model.
 
 ## Local development
 
@@ -12,7 +12,7 @@ cp .env.example .env.local # only if you do not already have local configuration
 pnpm dev
 ```
 
-Open http://localhost:3000. Missing founder/contact/company fields are omitted. Without `NEXT_PUBLIC_SITE_URL`, pages are marked `noindex`, robots disallows crawling, and the sitemap is empty. Keep previews unset; rebuild after changing public environment variables.
+Open http://localhost:3000; the root redirects to `/id` (or the language remembered in the `ansilum-locale` cookie). Missing contact/company fields are omitted. Without `NEXT_PUBLIC_SITE_URL`, pages are marked `noindex`, robots disallows crawling, and the sitemap is empty. Keep previews unset; rebuild after changing public environment variables.
 
 ```bash
 pnpm test
@@ -22,19 +22,23 @@ pnpm start
 node scripts/check-launch.mjs
 ```
 
-The launch check intentionally fails until company identity, contact, canonical domain, and durable intake are configured. Configuration alone does not establish ownership or product readiness. Do not publish before the remaining confirmations in [the claims register](docs/CLAIMS.md).
+The launch check intentionally fails until contact, canonical domain, and durable intake are configured. Configuration alone does not establish ownership or product readiness. Do not publish before the remaining confirmations in [the claims register](docs/CLAIMS.md).
 
 ## Pages and editing
 
-- `/`: merchant narrative, reporting previews, offline scope, planned intelligence, product status, early merchant conversation.
-- `/products/ansilum`, `/intelligence`, `/about`: independently understandable product, roadmap, and company pages.
-- `/demo`: validated request form. `/pricing`: discuss scope and terms before onboarding; no invented prices.
-- `/privacy`, `/terms`, `/security`: website data flows, demo terms, and clearly bounded product information.
-- `/blog`: three repository-owned articles in `src/data/articles.ts`, with RSS at `/blog/feed.xml`.
-- Legacy `/company`, `/our-products`, `/contactus`, `/term-of-service`, and `/feed.xml` redirect to relevant replacements. The old terms route contained privacy content and redirects to `/privacy`; the new terms are `/terms`.
-- `/login` links through only when a real app URL is configured; otherwise it explains Beta access. Sanity Studio remains available for the existing project but is not a public acquisition route. The public blog no longer reads seed content from Sanity. No remote CMS data was changed.
+Every public page exists under both `/id/...` and `/en/...`. `src/middleware.ts` redirects unprefixed paths, and the language switch keeps the visitor on the equivalent page.
 
-Shared copy/layout components live in `src/components/marketing`. Existing coffee colors and spacing foundations are retained; `src/styles/marketing.css` adds accessible marketing controls and typography. Old unmounted template components and assets remain to preserve existing work; they are not evidence for current marketing claims.
+- `/`: hero, the interactive assistant example (`#demo`), how it works, examples for every kind of UMKM, the cashier app, businesses using Ansilum, mission, FAQ.
+- `/product`: the assistant, how Claude fits in, the cashier app, offline behaviour, what is available today, and how to start.
+- `/about`: a letter from the founder, Saifulloh Fadli, plus Calterras and the timeline. `/updates`: dated milestones with evidence.
+- `/demo`: validated request form. `/pricing`: Basic, Standard, and Full plans (`src/content/pricing.ts`), AI credits coming soon, and a comparison table.
+- `/privacy`, `/terms`, `/security`: website data flows, demo terms, and bounded product information.
+- The blog is retired. Legacy `/company`, `/our-products`, `/products/ansilum`, `/intelligence`, `/contactus`, `/term-of-service`, `/blog/*`, and `/feed.xml` redirect to their replacements in `next.config.mjs`.
+- `/login` links through only when a real app URL is configured. Sanity Studio remains at `/studio` for the existing project but is not a public route.
+
+Copy lives in typed per-locale objects: `src/content/*.ts` for shared, homepage, assistant and updates copy, and inside each page file for the other pages. Components live in `src/components/site`. The sample-shop numbers in `src/content/consultation.ts` are checked by `tests/consultation.test.cjs`; update both together. The design uses one font (Plus Jakarta Sans), white surfaces, and the brand orange in `tailwind.config.js`. [docs/DESIGN.md](docs/DESIGN.md) records the design language (voice, tokens, components, the AI chat pattern, motion specs, line art) for the mobile app to share.
+
+Motion lives in `src/styles/marketing.css` and animates only transform, opacity, filter, and SVG stroke offsets, so nothing shifts layout. `src/components/site/motion-observer.tsx` is one site-wide observer: add `data-reveal` to fade an element in when it scrolls into view, and `data-anim` to pause its looping animations while it is off screen. Animated line art (pulses along dotted tracks, the UMKM counters, the step illustrations) is in `src/components/site/line-art.tsx`. The demo answer types in word by word through `data-typing`. All of it is switched off for visitors who prefer reduced motion, and hidden start states only apply when scripts run.
 
 ## Demo intake and follow-up
 
@@ -55,10 +59,10 @@ Every CTA and form start/accepted/failure dispatches a browser `ansilum:analytic
 
 ## Product evidence
 
-Two PNGs under `public/product` were captured from the existing Flutter `tool/analytics_preview.dart` harness on 8 October 2026. They render the real `SalesDashboard` with its sample repository; they are development previews, not customer data or release verification. See [provenance and claim boundaries](docs/CLAIMS.md). No interface was generated or retouched. The offline diagram explains the architecture; it is not a transaction recording.
+Two PNGs under `public/product` were captured from the existing Flutter `tool/analytics_preview.dart` harness on 8 October 2026. They render the real `SalesDashboard` with its sample repository; they are development previews, not customer data or release verification. See [provenance and claim boundaries](docs/CLAIMS.md). No interface was generated or retouched.
 
 ## Publication prerequisites
 
-Confirm the public founder identity/profile, city/start year, canonical HTTPS domain, company email, intake ownership, and deployed product/device scope. Optional unknown facts are deliberately absent from public pages. Confirm any Early Merchant pricing/support promises separately. Do not add traction counts, customer logos, release guarantees, certifications, or available Claude claims without evidence.
+Confirm the canonical HTTPS domain (`https://ansilum.com`), company email, intake ownership, and deployed product/device scope. The founder profile and city are optional. Optional unknown facts are deliberately absent from public pages. Confirm any Early Merchant pricing/support promises separately. Do not add traction counts, testimonials, customer logos, release guarantees, certifications, or claims that the AI assistant is available without evidence.
 
 The original template remains subject to its [Tailwind UI license](https://tailwindui.com/license).

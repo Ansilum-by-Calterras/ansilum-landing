@@ -32,7 +32,7 @@ export async function persistDemo(data: DemoRequest) {
         ...data,
         receivedAt: new Date().toISOString(),
         source: 'ansilum-website',
-        policyVersion: '2026-10-08',
+        policyVersion: '2026-10-09',
       }),
     })
     if (response.status === 409) throw new IntakeError('conflict')
@@ -64,7 +64,7 @@ export async function persistDemo(data: DemoRequest) {
     ...data,
     receivedAt: new Date().toISOString(),
     source: 'ansilum-website',
-    policyVersion: '2026-10-08',
+    policyVersion: '2026-10-09',
     fingerprint: fingerprint(data),
   }
   const handle = await open(temporary, 'wx', 0o600)

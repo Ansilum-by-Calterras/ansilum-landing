@@ -4,8 +4,8 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.985 0 0);              /* #FAFAFA */
-  --foreground: oklch(0.300 0.036 30.2);        /* #3E2723 Dark Coffee */
+  --background: #ffffff;                        /* canvas */
+  --foreground: #111418;                        /* ink */
   --card: oklch(100% 0.00011 271.152);                     /* #E7E7E7 */
   --card-foreground: oklch(0.300 0.036 30.2);   /* #3E2723 */
   --popover: oklch(0.928 0 0);                  /* #E7E7E7 */
@@ -15,12 +15,12 @@
   --secondary: oklch(0.727 0.048 63.7);         /* #BDA188 */
   --secondary-foreground: oklch(0.300 0.036 30.2); /* #3E2723 */
   --muted: oklch(0.928 0 0);                    /* #E7E7E7 card */
-  --muted-foreground: oklch(0.402 0.044 37.9);  /* #5D4037 */
+  --muted-foreground: #545d6a;                  /* soft */
   --accent: oklch(0.727 0.048 63.7);            /* #BDA188 secondary */
   --accent-foreground: oklch(0.300 0.036 30.2); /* #3E2723 */
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.752 0.023 39.2);            /* #BCAAA4 divider */
+  --border: #e3e6eb;                            /* line */
   --input: oklch(0.853 0.013 41.0);             /* #D7CCC8 disabled */
   --ring: oklch(0.620 0.070 59.1);              /* #A67C5B primary */
   --chart-1: oklch(0.560 0.110 48.0);   /* espresso brown */
