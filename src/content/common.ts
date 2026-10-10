@@ -1,4 +1,7 @@
 import type { Locale } from '@/i18n/config'
+import type { SocialId } from '@/components/site/site-footer'
+
+type Social = { id: SocialId; label: string; href: string }
 
 const en = {
   skipLink: 'Skip to main content',
@@ -20,6 +23,26 @@ const en = {
   signIn: 'Sign in',
   requestDemo: "Let's Talk",
   footer: {
+    company: {
+      title: 'Contact',                        // id: 'Kontak'
+      legalName: 'PT Cendekia Langit Tanah Sentosa', // TODO: registered company name
+      addressLines: [                           // TODO: real office address
+        'Jl. Jetis Kulon VI No.20',
+        'Wonokromo, Surabaya',
+        'Jawa Timur 60243, Indonesia',
+      ],
+      channels: [
+        // TODO: replace values and hrefs, remove or add channels as needed
+        { label: 'Email', value: 'support@ansilum.com', href: 'mailto:support@ansilum.com' },
+        { label: 'Phone', value: '+62 878 8674 3544', href: 'tel:+6287886743544' },
+        {
+          label: 'WhatsApp',
+          value: '+62 878 8674 3544',
+          href: 'https://wa.me/6287886743544',
+          external: true,
+        },
+      ]
+    },
     tagline:
       'A cashier app with an AI assistant for Indonesian small businesses.',
     builder:
@@ -53,6 +76,13 @@ const en = {
     contact: 'Contact',
     rights: 'Calterras. Ansilum is a Calterras product.',
     madeIn: 'Built in Indonesia',
+    socialsLabel: 'Follow us',
+    socials: [
+      { id: 'instagram', label: 'Instagram', href: 'https://instagram.com/ansilum.id' },
+      { id: 'facebook', label: 'Facebook', href: 'https://facebook.com/ansilum' },
+      { id: 'linkedin', label: 'LinkedIn', href: 'https://linkedin.com/company/ansilum' },
+      { id: 'x', label: 'X', href: 'https://x.com/ansilum' },
+    ] satisfies Social[]
   },
   finalCta: {
     heading: "Let's talk about your business.",
@@ -83,9 +113,30 @@ const id: CommonContent = {
   signIn: 'Masuk',
   requestDemo: "Mari Ngobrol",
   footer: {
-    tagline: 'Aplikasi kasir dengan asisten AI untuk UMKM Indonesia.',
+    company: {
+      title: 'Kontak',
+      legalName: 'PT Cendekia Langit Tanah Sentosa', // TODO: nama resmi perusahaan
+      addressLines: [                                 // TODO: alamat kantor sebenarnya
+        'Jl. Jetis Kulon VI No.20',
+        'Wonokromo, Surabaya',
+        'Jawa Timur 60243, Indonesia',
+      ],
+      channels: [
+        // TODO: ganti nilai dan href, hapus atau tambah kanal sesuai kebutuhan
+        { label: 'Email', value: 'support@ansilum.com', href: 'mailto:support@ansilum.com' },
+        { label: 'Telepon', value: '+62 878 8674 3544', href: 'tel:+6287886743544' },
+        {
+          label: 'WhatsApp',
+          value: '+62 878 8674 3544',
+          href: 'https://wa.me/6287886743544',
+          external: true,
+        },
+      ]
+    },
+    tagline:
+      'Aplikasi kasir dengan asisten AI untuk usaha kecil di Indonesia.',
     builder:
-      'Ansilum dimulai pada Maret 2024 dan dikembangkan oleh Calterras, usaha software dari Indonesia yang dipimpin founder.',
+      'Ansilum dimulai pada Maret 2024. Dibangun oleh Calterras, perusahaan perangkat lunak yang dipimpin pendirinya di Indonesia.',
     groups: [
       {
         title: 'Ansilum',
@@ -93,7 +144,7 @@ const id: CommonContent = {
           ['Produk', '/product'],
           ['Cara kerja', '/#how-it-works'],
           ['Harga', '/pricing'],
-          ['Kabar terbaru', '/updates'],
+          ['Pembaruan', '/updates'],
         ],
       },
       {
@@ -107,7 +158,7 @@ const id: CommonContent = {
         title: 'Informasi',
         links: [
           ['Privasi', '/privacy'],
-          ['Ketentuan', '/terms'],
+          ['Syarat & Ketentuan', '/terms'],
           ['Keamanan', '/security'],
         ],
       },
@@ -115,6 +166,14 @@ const id: CommonContent = {
     contact: 'Kontak',
     rights: 'Calterras. Ansilum adalah produk Calterras.',
     madeIn: 'Dibuat di Indonesia',
+    socialsLabel: 'Ikuti kami',
+    socials: [
+      // TODO: ganti dengan URL profil sebenarnya
+      { id: 'instagram', label: 'Instagram', href: 'https://instagram.com/ansilum' },
+      { id: 'facebook', label: 'Facebook', href: 'https://facebook.com/ansilum' },
+      { id: 'linkedin', label: 'LinkedIn', href: 'https://linkedin.com/company/ansilum' },
+      { id: 'x', label: 'X', href: 'https://x.com/ansilum' },
+    ] satisfies Social[]
   },
   finalCta: {
     heading: 'Mari bahas kebutuhan usaha Anda.',
