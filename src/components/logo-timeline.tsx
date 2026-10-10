@@ -1,5 +1,4 @@
 import { clsx } from 'clsx'
-import { Mark } from './logo'
 
 function Row({ children }: { children: React.ReactNode }) {
   return (
@@ -47,9 +46,6 @@ export function LogoTimeline() {
             maskRepeat: 'no-repeat',
           }}
         />
-        <div className="relative flex size-24 items-center justify-center rounded-xl bg-gradient-to-t from-white/5 to-white/25 shadow outline outline-offset-[-5px] outline-white/5 ring-1 ring-inset ring-white/10">
-          <Mark className="h-9 fill-white" />
-        </div>
       </div>
       <div className="absolute inset-0 grid grid-cols-1 pt-8 [container-type:inline-size]">
         <Row>
