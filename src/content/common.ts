@@ -2,6 +2,7 @@ import type { Locale } from '@/i18n/config'
 
 const en = {
   skipLink: 'Skip to main content',
+  homeLogo: 'Ansilum',
   homeLabel: 'Ansilum, home',
   nav: [
     { name: 'Product', href: '/product' },
@@ -64,6 +65,7 @@ export type CommonContent = typeof en
 
 const id: CommonContent = {
   skipLink: 'Lewati ke konten utama',
+  homeLogo: 'Ansilum',
   homeLabel: 'Ansilum, beranda',
   nav: [
     { name: 'Produk', href: '/product' },

@@ -1,4 +1,5 @@
 import { clsx } from 'clsx'
+import icon from '@/app/icon_bg.png'
 
 /*
  * Animated line art. Everything is decorative SVG (aria-hidden) driven by CSS classes in
@@ -70,22 +71,40 @@ function Node({ x, y, r = 6, color = BRAND, delay = 0 }: { x: number; y: number;
 /** The Ansilum mark as a node: an orange rounded square with an "a". */
 function Mark({ x, y, size = 40, delay = 0 }: { x: number; y: number; size?: number; delay?: number }) {
   const half = size / 2
+  const rx = size * 0.3
+  // Unique per instance so multiple marks on the same page don't share a clipPath
+  const clipId = `mark-clip-${String(x).replace(/\W/g, '_')}-${String(y).replace(/\W/g, '_')}-${size}`
+
   return (
     <g>
+      {/* Pulse ring, unchanged */}
       <rect
         className="ping"
         x={x - half}
         y={y - half}
         width={size}
         height={size}
-        rx={size * 0.3}
+        rx={rx}
         fill={BRAND}
         style={{ '--delay': `${delay}s` } as Style}
       />
-      <rect x={x - half} y={y - half} width={size} height={size} rx={size * 0.3} fill={BRAND} />
-      <text x={x} y={y + size * 0.17} textAnchor="middle" fontSize={size * 0.52} fontWeight={700} fill="#fff">
-        a
-      </text>
+
+      <defs>
+        <clipPath id={clipId}>
+          <rect x={x - half} y={y - half} width={size} height={size} rx={rx} />
+        </clipPath>
+      </defs>
+
+      {/* App icon replaces the brand-colored square and the "a" text */}
+      <image
+        href={icon.src}
+        x={x - half}
+        y={y - half}
+        width={size}
+        height={size}
+        clipPath={`url(#${clipId})`}
+        preserveAspectRatio="xMidYMid slice"
+      />
     </g>
   )
 }

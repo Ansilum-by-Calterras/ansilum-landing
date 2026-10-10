@@ -1,6 +1,5 @@
 'use client'
 import { Logo } from '@/components/logo'
-import { siteConfig } from '@/config/site'
 import { commonContent } from '@/content/common'
 import { localePath, type Locale } from '@/i18n/config'
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
@@ -8,7 +7,6 @@ import {
   ArrowRightIcon,
   Bars2Icon,
   XMarkIcon,
-  UserCircleIcon,
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'

@@ -15,6 +15,8 @@ import { ArrowUpIcon, CheckIcon } from '@heroicons/react/24/outline'
 import { clsx } from 'clsx'
 import { useState } from 'react'
 import { trackEvent } from './analytics'
+import icon from '@/app/icon_bg.png'
+import Image from 'next/image'
 
 const questionOrder: QuestionKey[] = ['weekly', 'products', 'daily']
 type View = 'chart' | 'table'
@@ -50,12 +52,14 @@ export function ConsultationPreview({ locale }: { locale: Locale }) {
     <figure data-reveal="none" data-typing>
       <div className="ui-window overflow-hidden text-ink">
         <div className="flex items-center gap-3 border-b border-line px-5 py-3.5 sm:px-6">
-          <span
-            className="flex size-8 items-center justify-center rounded-lg bg-brand text-sm font-bold text-white"
+          <Image
+            src={icon}
+            alt=""
+            width={32}
+            height={32}
+            className="size-8 shrink-0 rounded-lg"
             aria-hidden="true"
-          >
-            a
-          </span>
+          />
           <div className="min-w-0">
             <p className="truncate text-sm font-semibold">{copy.business}</p>
             <p className="text-xs text-soft">{copy.period}</p>

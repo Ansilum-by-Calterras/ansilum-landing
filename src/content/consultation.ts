@@ -87,7 +87,7 @@ export type Segment = string | { text: string; series: string }
 export type QuestionKey = 'weekly' | 'products' | 'daily'
 
 const en = {
-  business: 'Sample Coffee Shop',
+  business: 'Ansilum Cafe',
   period: '28 Sep – 4 Oct 2026',
   compared: 'Compared with 21–27 Sep',
   assistant: 'Ansilum',
@@ -177,7 +177,7 @@ const en = {
 export type ConsultationContent = typeof en
 
 const id: ConsultationContent = {
-  business: 'Kedai Kopi Contoh',
+  business: 'Cafe Ansilum',
   period: '28 Sep – 4 Okt 2026',
   compared: 'Dibanding 21–27 Sep',
   assistant: 'Ansilum',

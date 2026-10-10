@@ -1,32 +1,36 @@
+import icon from '@/app/icon_bg.png'
 import { clsx } from 'clsx'
+import Image from 'next/image'
+
 export function Logo({
   className,
+  showIcon = true,
 }: {
   className?: string
+  showIcon?: boolean
   width?: number | string
   height?: number | string
 }) {
   return (
     <span
       className={clsx(
-        ' text-[1.7rem] font-semibold tracking-[-0.04em] text-ink',
+        'inline-flex items-center gap-2.5 text-[1.7rem] font-semibold tracking-[-0.04em] text-ink',
         className,
       )}
     >
-      ansilum<span className="text-brand">.</span>
-    </span>
-  )
-}
-export function Mark({ className }: { className?: string }) {
-  return (
-    <span
-      className={clsx(
-        ' text-3xl font-semibold text-foreground',
-        className,
+      {showIcon && (
+        <Image
+          src={icon}
+          alt=""
+          width={32}
+          height={32}
+          className="size-8 shrink-0 rounded-lg"
+          priority
+        />
       )}
-      aria-label="Ansilum"
-    >
-      a.
+      <span>
+        ansilum<span className="text-brand">.</span>
+      </span>
     </span>
   )
 }
