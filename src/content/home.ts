@@ -10,7 +10,7 @@ const en = {
     headline: 'Turn daily sales into your next business decision.',
     supporting:
       'Ansilum is a cashier app with an AI assistant for Indonesian small businesses. Record every sale, ask about your business in everyday words, and get answers from your own numbers.',
-    tryIt: 'Try the example',
+    tryIt: 'Sign up Now',
     usedBy: 'Already used by',
     flow: {
       order: 'Order 360',
@@ -140,7 +140,7 @@ const id: HomeContent = {
     headline: 'Ubah penjualan harian menjadi langkah usaha berikutnya.',
     supporting:
       'Ansilum adalah aplikasi kasir dengan asisten AI untuk UMKM Indonesia. Catat setiap penjualan, tanya apa saja soal usaha Anda, dan dapatkan jawaban dari angka penjualan Anda sendiri.',
-    tryIt: 'Coba contohnya',
+    tryIt: 'Daftar Sekarang',
     usedBy: 'Sudah dipakai oleh',
     flow: {
       order: 'Pesanan 360',

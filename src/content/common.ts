@@ -17,7 +17,7 @@ const en = {
   languageLabel: 'Language',
   switchTo: 'Baca dalam Bahasa Indonesia',
   signIn: 'Sign in',
-  requestDemo: 'Request a demo',
+  requestDemo: "Let's Talk",
   footer: {
     tagline:
       'A cashier app with an AI assistant for Indonesian small businesses.',
@@ -79,7 +79,7 @@ const id: CommonContent = {
   languageLabel: 'Bahasa',
   switchTo: 'Read in English',
   signIn: 'Masuk',
-  requestDemo: 'Minta demo',
+  requestDemo: "Mari Ngobrol",
   footer: {
     tagline: 'Aplikasi kasir dengan asisten AI untuk UMKM Indonesia.',
     builder:

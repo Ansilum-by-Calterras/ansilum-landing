@@ -56,7 +56,10 @@ export default function HomePage({ params }: Props) {
                   {common.requestDemo}
                   <ArrowRightIcon className="size-4" aria-hidden="true" />
                 </DemoLink>
-                <a href="#demo" className="btn-secondary">
+                <a
+                  href="https://dashboard.ansilum.com/sign-up"
+                  className="btn-secondary"
+                >
                   {copy.hero.tryIt}
                 </a>
               </div>

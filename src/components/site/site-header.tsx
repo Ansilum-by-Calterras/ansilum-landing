@@ -4,15 +4,41 @@ import { siteConfig } from '@/config/site'
 import { commonContent } from '@/content/common'
 import { localePath, type Locale } from '@/i18n/config'
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
-import { ArrowRightIcon, Bars2Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import {
+  ArrowRightIcon,
+  Bars2Icon,
+  XMarkIcon,
+  UserCircleIcon,
+} from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { DemoLink } from './demo-link'
 import { LanguageSwitch } from './language-switch'
+import { useDashboardSession } from '../dashboard-user'
 
 export function SiteHeader({ locale }: { locale: Locale }) {
+  const {
+    user,
+    isAuthenticated,
+    isLoading: isCheckingAuth,
+  } = useDashboardSession()
+  
   const copy = commonContent[locale]
   const pathname = usePathname()
+
+  function getInitials(name?: string | null, email?: string | null) {
+    if (name?.trim()) {
+      return name
+        .trim()
+        .split(/\s+/)
+        .slice(0, 2)
+        .map((part) => part[0]?.toUpperCase())
+        .join('')
+    }
+  
+    return email?.[0]?.toUpperCase() ?? 'U'
+  }
+
   return (
     <Disclosure
       as="header"
@@ -41,10 +67,35 @@ export function SiteHeader({ locale }: { locale: Locale }) {
             </nav>
             <div className="flex items-center gap-2 sm:gap-4">
               <LanguageSwitch locale={locale} label={copy.languageLabel} className="hidden sm:flex" />
-              {siteConfig.appUrl && (
-                <a href={siteConfig.appUrl} className="hidden text-sm font-semibold lg:block">
-                  {copy.signIn}
-                </a>
+              {!isCheckingAuth && (
+                <>
+                  {isAuthenticated ? (
+                    <a
+                      href="https://dashboard.ansilum.com"
+                      aria-label="Open Ansilum dashboard"
+                      className="hidden size-11 items-center justify-center overflow-hidden rounded-full border border-line transition-opacity hover:opacity-80 lg:flex"
+                    >
+                      {user?.image ? (
+                        <img
+                          src={user.image}
+                          alt={user.name ?? 'Profile'}
+                          className="size-full object-cover"
+                        />
+                      ) : (
+                        <span className="flex size-full items-center justify-center bg-brand-ink text-xs font-bold text-white">
+                          {getInitials(user?.name, user?.email)}
+                        </span>
+                      )}
+                    </a>
+                  ) : (
+                    <a
+                      href="https://dashboard.ansilum.com/sign-in"
+                      className="btn-secondary hidden lg:inline-flex"
+                    >
+                      {copy.signIn}
+                    </a>
+                  )}
+                </>
               )}
               <DemoLink locale={locale} placement="header" className="hidden !min-h-11 !px-5 sm:inline-flex">
                 {copy.requestDemo}
