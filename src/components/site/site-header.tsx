@@ -67,36 +67,34 @@ export function SiteHeader({ locale }: { locale: Locale }) {
             </nav>
             <div className="flex items-center gap-2 sm:gap-4">
               <LanguageSwitch locale={locale} label={copy.languageLabel} className="hidden sm:flex" />
-              {!isCheckingAuth && (
-                <>
-                  {isAuthenticated ? (
-                    <a
-                      href="https://dashboard.ansilum.com"
-                      aria-label="Open Ansilum dashboard"
-                      className="hidden size-11 items-center justify-center overflow-hidden rounded-full border border-line transition-opacity hover:opacity-80 lg:flex"
-                    >
-                      {user?.image ? (
-                        <img
-                          src={user.image}
-                          alt={user.name ?? 'Profile'}
-                          className="size-full object-cover"
-                        />
-                      ) : (
-                        <span className="flex size-full items-center justify-center bg-brand-ink text-xs font-bold text-white">
-                          {getInitials(user?.name, user?.email)}
-                        </span>
-                      )}
-                    </a>
-                  ) : (
-                    <a
-                      href="https://dashboard.ansilum.com/sign-in"
-                      className="btn-secondary hidden lg:inline-flex"
-                    >
-                      {copy.signIn}
-                    </a>
-                  )}
-                </>
-              )}
+              {!isCheckingAuth && isAuthenticated && (
+                  <a
+                    href="https://dashboard.ansilum.com"
+                    aria-label="Open Ansilum dashboard"
+                    className="flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-line transition-opacity hover:opacity-80"
+                  >
+                    {user?.image ? (
+                      <img
+                        src={user.image}
+                        alt={user.name ?? 'Profile'}
+                        className="size-full object-cover"
+                      />
+                    ) : (
+                      <span className="flex size-full items-center justify-center bg-brand-ink text-xs font-bold text-white">
+                        {getInitials(user?.name, user?.email)}
+                      </span>
+                    )}
+                  </a>
+                )}
+
+                {!isCheckingAuth && !isAuthenticated && (
+                  <a
+                    href="https://dashboard.ansilum.com/sign-in"
+                    className="btn-secondary hidden lg:inline-flex"
+                  >
+                    {copy.signIn}
+                  </a>
+                )}
               <DemoLink locale={locale} placement="header" className="hidden !min-h-11 !px-5 sm:inline-flex">
                 {copy.requestDemo}
                 <ArrowRightIcon className="size-4" aria-hidden="true" />
@@ -110,7 +108,10 @@ export function SiteHeader({ locale }: { locale: Locale }) {
             </div>
           </div>
           <DisclosurePanel className="border-t border-line bg-white px-5 pb-6 pt-3 lg:hidden">
-            <nav aria-label={copy.mobileNavLabel} className="mx-auto flex max-w-2xl flex-col">
+            <nav
+              aria-label={copy.mobileNavLabel}
+              className="mx-auto flex max-w-2xl flex-col"
+            >
               {copy.nav.map((item) => (
                 <Link
                   key={item.href}
@@ -121,17 +122,72 @@ export function SiteHeader({ locale }: { locale: Locale }) {
                   {item.name}
                 </Link>
               ))}
+          
+              {!isCheckingAuth && (
+                <div className="mt-5">
+                  {isAuthenticated ? (
+                    <a
+                      href="https://dashboard.ansilum.com"
+                      onClick={() => close()}
+                      className="flex items-center gap-3 rounded-lg border border-line p-3 transition-colors hover:bg-mist"
+                    >
+                      <div className="flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-full">
+                        {user?.image ? (
+                          <img
+                            src={user.image}
+                            alt={user.name ?? 'Profile'}
+                            className="size-full object-cover"
+                          />
+                        ) : (
+                          <span className="flex size-full items-center justify-center bg-brand-ink text-xs font-bold text-white">
+                            {getInitials(user?.name, user?.email)}
+                          </span>
+                        )}
+                      </div>
+                      
+                      <div className="min-w-0 flex-1">
+                        <p className="truncate text-sm font-semibold">
+                          {user?.name ?? 'Ansilum'}
+                        </p>
+                      
+                        {user?.email && (
+                          <p className="truncate text-xs text-soft">
+                            {user.email}
+                          </p>
+                        )}
+                      </div>
+                      
+                      <ArrowRightIcon
+                        className="size-4 text-soft"
+                        aria-hidden="true"
+                      />
+                    </a>
+                  ) : (
+                    <a
+                      href="https://dashboard.ansilum.com/sign-in"
+                      onClick={() => close()}
+                      className="btn-secondary flex w-full justify-center"
+                    >
+                      {copy.signIn}
+                    </a>
+                  )}
+                </div>
+              )}
+          
               <div className="mt-5 flex flex-wrap items-center justify-between gap-4">
-                <LanguageSwitch locale={locale} label={copy.languageLabel} />
-                <DemoLink locale={locale} placement="mobile-menu" onClick={() => close()}>
+                <LanguageSwitch
+                  locale={locale}
+                  label={copy.languageLabel}
+                />
+          
+                <DemoLink
+                  locale={locale}
+                  placement="mobile-menu"
+                  onClick={() => close()}
+                >
                   {copy.requestDemo}
                 </DemoLink>
               </div>
-              {siteConfig.appUrl && (
-                <a href={siteConfig.appUrl} className="mt-4 py-2 text-sm font-semibold">
-                  {copy.signIn}
-                </a>
-              )}
             </nav>
           </DisclosurePanel>
         </>
