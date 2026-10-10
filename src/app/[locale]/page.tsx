@@ -18,6 +18,7 @@ import {
   TrophyIcon,
 } from '@heroicons/react/24/outline'
 import { notFound } from 'next/navigation'
+import { BetaAccess } from '@/components/site/mobile-app-cta'
 
 type Props = { params: { locale: string } }
 
@@ -172,6 +173,13 @@ export default function HomePage({ params }: Props) {
           >
             <ProductScreens locale={locale} />
           </div>
+        </Container>
+      </section>
+
+      {/* Closed beta: download request */}
+      <section id="download" className="relative scroll-mt-20 overflow-hidden bg-night text-white">
+        <Container className="py-20 sm:py-28">
+          <BetaAccess copy={copy.beta} locale={locale} />
         </Container>
       </section>
 
