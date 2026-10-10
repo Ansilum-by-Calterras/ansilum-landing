@@ -14,7 +14,7 @@ export function Logo({
   return (
     <span
       className={clsx(
-        'inline-flex items-center gap-2.5 text-[1.7rem] font-semibold tracking-[-0.04em] text-ink',
+        'inline-flex items-center gap-1.5 text-[1.7rem] font-semibold tracking-[-0.04em] text-ink',
         className,
       )}
     >
@@ -28,8 +28,9 @@ export function Logo({
           priority
         />
       )}
+
       <span>
-        ansilum<span className="text-brand">.</span>
+        ansilum<span className="text-brand -ml-px">.</span>
       </span>
     </span>
   )
