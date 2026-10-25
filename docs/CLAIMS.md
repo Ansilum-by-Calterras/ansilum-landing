@@ -17,6 +17,8 @@ Reviewed 9 October 2026 for the bilingual AI-native redesign. Source existence e
 | Claude explains results; Ansilum calculates the numbers | Planned architecture in the brief; inspected source has no Claude runtime | Phrased as "we are building the assistant with Claude". No partnership, endorsement, or live integration is implied. |
 | Cash sales can be recorded offline on a prepared device and sync later | Flutter local transaction/outbox code; backend reconciliation | QRIS, card, the sales report, and the assistant need internet. No guarantee of instant sync; some sales may need a manual check. |
 | Sales report by period and outlet | Flutter `SalesDashboard`, captured with sample data | Screenshots are labelled as sample data. |
+| Product preview: the cashier app rings up an order with menu options and takes cash, transfer, or QRIS; the owner dashboard shows all outlets today, the sales report, best sellers and busy hours, and customers with points | Captures of `ansilum-flutter` and `ansilum-web` with the sample business, 25 October 2026 (see provenance below) | The window is labelled "Data contoh / Sample data" and every screen shows the fictional "Kedai Kopi Contoh". The cashier app offers Tunai, Transfer, and QRIS, so the copy does not mention cards. "Cash sales are saved on the tablet first" follows the offline row above. The customer and points screens need the customer-management backend release of 25 October 2026 in production before this section goes live. |
+| What's inside: receipts on a Bluetooth thermal printer, staff with their own PIN, recipes that lower ingredient stock and give the cost of each item (HPP), a points programme with rewards, several outlets in one dashboard | Flutter printing hub (`flutter_thermal_printer`, `print_bluetooth_thermal`) and employee PIN sign-in; backend recipes, sale stock deduction and COGS; loyalty modules; the all-outlet monitor | Plan-dependent, so the grid ends with "Features follow the plan you choose" and links to pricing. No printer models, counts, or speeds are claimed. |
 | Website demo request validation and durable acknowledgement | Implemented route, tests, and storage module | Production needs a persistent store or an acknowledging receiver. |
 
 ## The assistant example
@@ -31,11 +33,21 @@ The homepage and Product page show a scripted conversation for a fictional "Keda
 - Assets: `public/product/sales-report.png` and `public/product/sales-report-chart.png`.
 - Scope: real reporting UI with sample data. Not an authenticated merchant session, live backend, or customer result.
 
+### Product preview (25 October 2026)
+
+- Data: a throwaway PostgreSQL database. The fictional "Kedai Kopi Contoh" (two outlets, sixteen menu items with recipes and options, three staff, 24 members, three rewards) was created through the real API. Ten weeks of synthetic sales were generated in SQL from fixed hashes, so the numbers are invented but consistent. No customer data.
+- Owner dashboard: `ansilum-web` (Vite dev server) against a local `ansilum-be`, signed in as the sample owner. Chrome via Playwright at 1440 × 1000 CSS pixels, device scale 2, time zone Asia/Jakarta, Indonesian and English. Cropped to the content area (sidebar and top bar removed) at 16:10 and scaled to 1800 × 1125 WebP.
+- Cashier app: an `ansilum-flutter` profile build (Android arm64) on the Medium Tablet emulator (2560 × 1600), registered to Cabang Menteng and signed in as the sample cashier. One real takeaway sale per language (Es kopi susu with options plus Pisang goreng, paid Rp50.000 cash), captured with `adb screencap` at each step and scaled to 1800 × 1125 WebP. The status bar is the emulator's. Each sale synced to the local backend.
+- Build-only settings, not in any repository: a demo-only offline signing key, and a cleartext exception so the profile build could reach the local HTTP backend.
+- Assets: `public/product/preview/*.webp`. Nothing was generated or retouched.
+
 ## Deliberately absent from live pages
 
 Testimonials and customer quotes, funding amounts, investors, customer/outlet/transaction counts, partner logos, improvement percentages, guaranteed 24/7 support, certifications, legal incorporation, yearly or AI credit prices, and any claim that the AI assistant is live.
 
 ## Outstanding confirmations
+
+- Deploy the 25 October 2026 backend (customer management and the report date fixes) before publishing the product preview, so the customer and points screens match production.
 
 - Saifulloh Fadli's approval of the About letter; optional public profile URL and city.
 - Permission from Ibu Noer Qomariah and Anggita Natalia to name them and their businesses.

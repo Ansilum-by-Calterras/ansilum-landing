@@ -129,6 +129,8 @@ For a mobile app, use Display M as the largest in-app heading and keep the tight
 
 **Numbered steps:** a 2 px rule on top (with a travelling glow; see Motion), "01" in `brand-ink` bold 14 px, a bold title, then a short line of body text.
 
+**Product tour (homepage `#preview`):** a row of chips picks the view; one window frame (16 px radius, the app-window shadow) holds a 16:10 capture under a header with the Ansilum mark, the sample business name, the surface ("Dasbor pemilik", "Aplikasi kasir di tablet"), and a `mist` "Data contoh" badge. The frame keeps its shape for every view, so switching never moves the page; the title and description sit below. The cashier view steps through one sale, with numbered step chips (the current one filled ink) and a Pause / Play text link. Below it, "Yang sudah ada di dalamnya" is one bordered grid of features with orange outline icons.
+
 **Icons:** Heroicons outline, 20 px, stroke 1.5 (2.5 for ticks). Orange (`brand`) when marking a feature, `leaf` for included or success.
 
 ## 7. The AI chat pattern
@@ -188,6 +190,7 @@ Animate only transform, opacity, blur (filter), and stroke offsets, so nothing c
 | Twinkle | Halftone dots fade between 25% and 100% opacity in a diagonal wave, every 2.6–3.2 s |
 | Float | Chat bubbles in illustrations move 6 px up and down, every 5 s |
 | Rule glow | A soft orange highlight sweeps along step dividers, every 3.6 s |
+| Checkout steps | The product tour's cashier view crossfades (240 ms) to the next real screen every 2.6 s, only while it is the open view and on screen; reduced motion shows the first step and the chips step manually |
 
 **Small touches:** arrow nudge on hover (200 ms); colour changes on buttons (150 ms); content swaps fade over 240 ms.
 

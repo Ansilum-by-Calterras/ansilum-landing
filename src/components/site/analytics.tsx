@@ -9,6 +9,7 @@ type EventName =
   | 'demo_request_failed'
   | 'preview_question'
   | 'preview_action'
+  | 'preview_view'
   | 'business_example'
   | 'language_switch'
 export function trackEvent(

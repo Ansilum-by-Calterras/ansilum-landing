@@ -28,7 +28,7 @@ The launch check intentionally fails until contact, canonical domain, and durabl
 
 Every public page exists under both `/id/...` and `/en/...`. `src/middleware.ts` redirects unprefixed paths, and the language switch keeps the visitor on the equivalent page.
 
-- `/`: hero, the interactive assistant example (`#demo`), how it works, examples for every kind of UMKM, the cashier app, businesses using Ansilum, mission, FAQ.
+- `/`: hero, the interactive assistant example (`#demo`), how it works, the product preview (`#preview`: real screens of the cashier app and owner dashboard, then what's inside), examples for every kind of UMKM, the cashier app, businesses using Ansilum, mission, FAQ.
 - `/product`: the assistant, how Claude fits in, the cashier app, offline behaviour, what is available today, and how to start.
 - `/about`: a letter from the founder, Saifulloh Fadli, plus Calterras and the timeline. `/updates`: dated milestones with evidence.
 - `/demo`: validated request form. `/pricing`: Basic, Standard, and Full plans (`src/content/pricing.ts`), AI credits coming soon, and a comparison table.
@@ -58,6 +58,8 @@ Production without either option returns 503. Local file storage is refused on V
 Every CTA and form start/accepted/failure dispatches a browser `ansilum:analytics` custom event. Payloads contain event name, page, content version, placement/reason or random request reference; never form values. Subscribe with `window.addEventListener('ansilum:analytics', handler)` for debugging. External Vercel analytics is disabled by default. Enable `NEXT_PUBLIC_ANALYTICS_ENABLED=true` only after confirming the account and disclosure. Old Google Ads conversion tags are not mounted. An accepted request event follows acknowledgement, not a button click.
 
 ## Product evidence
+
+The product preview (`src/components/site/product-tour.tsx`, copy in `src/content/home.ts`) uses WebP captures under `public/product/preview`, made on 25 October 2026 from the real cashier app and owner dashboard with the fictional sample business "Kedai Kopi Contoh". Each view exists in Indonesian and English. The cashier view steps through one real sale. [Provenance](docs/CLAIMS.md#product-preview-25-october-2026) records how they were made.
 
 Two PNGs under `public/product` were captured from the existing Flutter `tool/analytics_preview.dart` harness on 8 October 2026. They render the real `SalesDashboard` with its sample repository; they are development previews, not customer data or release verification. See [provenance and claim boundaries](docs/CLAIMS.md). No interface was generated or retouched.
 

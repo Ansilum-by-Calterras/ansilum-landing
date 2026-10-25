@@ -5,14 +5,20 @@ import { AskArt, HeroFlow, NetworkField, PulseRule, ReceiptArt, SortArt, UmkmSce
 import { Container, FinalCta, LocalLink, RiseWords } from '@/components/site/page-parts'
 import { PlanCards } from '@/components/site/pricing-plans'
 import { ProductScreens } from '@/components/site/product-screens'
+import { ProductTour } from '@/components/site/product-tour'
 import { commonContent } from '@/content/common'
 import { homeContent } from '@/content/home'
 import { isLocale, type Locale } from '@/i18n/config'
 import { pageMetadata } from '@/lib/metadata'
 import {
+  ArchiveBoxIcon,
   ArrowRightIcon,
   BuildingStorefrontIcon,
   ChartBarIcon,
+  DeviceTabletIcon,
+  GiftIcon,
+  IdentificationIcon,
+  PrinterIcon,
   SignalSlashIcon,
   SparklesIcon,
   TrophyIcon,
@@ -28,6 +34,16 @@ export function generateMetadata({ params }: Props) {
 }
 
 const pointIcons = [ChartBarIcon, TrophyIcon, SignalSlashIcon, BuildingStorefrontIcon]
+const featureIcons = [
+  DeviceTabletIcon,
+  SignalSlashIcon,
+  PrinterIcon,
+  ChartBarIcon,
+  BuildingStorefrontIcon,
+  ArchiveBoxIcon,
+  GiftIcon,
+  IdentificationIcon,
+]
 const delay = (ms: number) => ({ '--delay': `${ms}ms` }) as React.CSSProperties
 
 export default function HomePage({ params }: Props) {
@@ -108,6 +124,43 @@ export default function HomePage({ params }: Props) {
               </li>
             ))}
           </ol>
+        </Container>
+      </section>
+
+      {/* Product preview: real screens with the sample business, then what is inside */}
+      <section id="preview" className="scroll-mt-20 border-t border-line">
+        <Container className="py-20 sm:py-28">
+          <h2 className="display-lg max-w-4xl text-balance" data-reveal>
+            {copy.preview.heading} <span className="text-soft">{copy.preview.intro}</span>
+          </h2>
+          <p className="lead mt-6 max-w-2xl" data-reveal style={delay(120)}>
+            {copy.preview.lead}
+          </p>
+          <div className="mt-12" data-reveal style={delay(200)}>
+            <ProductTour copy={copy.preview} />
+          </div>
+
+          <h3 className="display-md mt-16 sm:mt-20" data-reveal>
+            {copy.preview.features.heading}
+          </h3>
+          <ul className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+            {copy.preview.features.items.map(([title, body], index) => {
+              const Icon = featureIcons[index]
+              return (
+                <li key={title} className="bg-white px-6 py-7" data-reveal style={delay((index % 4) * 90)}>
+                  <Icon className="size-5 text-brand" aria-hidden="true" />
+                  <p className="mt-4 font-bold tracking-[-0.01em]">{title}</p>
+                  <p className="mt-2 leading-7 text-soft">{body}</p>
+                </li>
+              )
+            })}
+          </ul>
+          <div className="mt-6 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between" data-reveal>
+            <p className="text-soft">{copy.preview.features.note}</p>
+            <LocalLink locale={locale} href="/pricing">
+              {copy.preview.features.link}
+            </LocalLink>
+          </div>
         </Container>
       </section>
 

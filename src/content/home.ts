@@ -1,5 +1,17 @@
 import type { Locale } from '@/i18n/config'
 
+type PreviewView = {
+  id: string
+  tab: string
+  surface: string
+  title: string
+  body: string
+  alt: string
+  image: string
+  /** Screens of one real sale, shown one after another; `image` is the first. */
+  steps?: { image: string; label: string }[]
+}
+
 const en = {
   meta: {
     title: 'Cashier app with an AI assistant for Indonesian small businesses',
@@ -61,6 +73,86 @@ const en = {
         body: '“Why were sales down this week?” Ansilum answers with the numbers and tells you what to check.',
       },
     ],
+  },
+  preview: {
+    heading: 'See the app before you try it.',
+    intro: 'The cashier rings up orders. You read the numbers.',
+    lead: 'Real screens from the Ansilum cashier app and owner dashboard, shown with a sample coffee shop.',
+    label: 'Ansilum screens',
+    business: 'Kedai Kopi Contoh',
+    sample: 'Sample data',
+    steps: 'Checkout steps',
+    play: 'Play',
+    pause: 'Pause',
+    views: [
+      {
+        id: 'pos',
+        tab: 'Cashier',
+        surface: 'Cashier app on a tablet',
+        title: 'Ring up an order in a few taps.',
+        body: 'Pick the menu, set the sugar level or add an extra shot, then take cash, transfer, or QRIS. Cash sales are saved on the tablet first, so the till keeps going when the internet drops.',
+        alt: 'The Ansilum cashier app with sample data, ringing up an Es kopi susu and a Pisang goreng. Step:',
+        image: '/product/preview/pos-1-menu.en.webp',
+        steps: [
+          { image: '/product/preview/pos-1-menu.en.webp', label: 'Pick the menu' },
+          { image: '/product/preview/pos-2-options.en.webp', label: 'Set the options' },
+          { image: '/product/preview/pos-3-order.en.webp', label: 'Check the order' },
+          { image: '/product/preview/pos-4-payment.en.webp', label: 'Take payment' },
+          { image: '/product/preview/pos-5-saved.en.webp', label: 'Saved' },
+        ],
+      },
+      {
+        id: 'outlets',
+        tab: 'All outlets',
+        surface: 'Owner dashboard',
+        title: 'Every outlet, today, on one screen.',
+        body: 'Sales collected, orders, and which outlet is busy right now, compared with yesterday at the same time.',
+        alt: 'Ansilum dashboard with sample data: today’s sales for two outlets, an outlet map, and orders by hour.',
+        image: '/product/preview/outlets.en.webp',
+      },
+      {
+        id: 'sales',
+        tab: 'Sales report',
+        surface: 'Owner dashboard',
+        title: 'A sales report you can read at a glance.',
+        body: 'Daily sales against the previous period, how customers paid, and the average spend per order.',
+        alt: 'Ansilum sales report with sample data: total sales, orders, a daily trend chart, and payment methods.',
+        image: '/product/preview/sales.en.webp',
+      },
+      {
+        id: 'analytics',
+        tab: 'Best sellers',
+        surface: 'Owner dashboard',
+        title: 'Know your best sellers and your busiest hours.',
+        body: 'Top products, gross profit after the cost of ingredients, and the hours that need more hands.',
+        alt: 'Ansilum analytics with sample data: revenue, gross profit, top products, and busy hours.',
+        image: '/product/preview/analytics.en.webp',
+      },
+      {
+        id: 'customers',
+        tab: 'Customers',
+        surface: 'Owner dashboard',
+        title: 'Regulars get points. You see who comes back.',
+        body: 'Points add up from every order, with visits, total spend, and rewards they can redeem.',
+        alt: 'Ansilum customer list with sample data: members with points, total spend, visits, and last visit.',
+        image: '/product/preview/customers.en.webp',
+      },
+    ] as PreviewView[],
+    features: {
+      heading: 'What’s inside.',
+      items: [
+        ['Cashier on a tablet or phone', 'Orders, menu options, and payments by cash, transfer, or QRIS.'],
+        ['Keeps going offline', 'Cash sales are still recorded and sync once the internet is back.'],
+        ['Receipts and printers', 'Print receipts on a Bluetooth thermal printer.'],
+        ['Sales reports', 'By day, week, or month, for each outlet or all of them.'],
+        ['Several outlets', 'Watch every branch from one dashboard.'],
+        ['Stock and cost of goods', 'Recipes lower ingredient stock as you sell and give the cost of each item.'],
+        ['Customers and points', 'A points programme with rewards your regulars can redeem.'],
+        ['Staff with their own PIN', 'Each cashier signs in with a PIN, so every sale has a name on it.'],
+      ] as [string, string][],
+      note: 'Features follow the plan you choose.',
+      link: 'Compare plans',
+    },
   },
   umkm: {
     heading: 'Made for every UMKM that sells every day.',
@@ -208,6 +300,86 @@ const id: HomeContent = {
         body: '“Kenapa penjualan minggu ini turun?” Ansilum menjawab dengan angkanya dan memberi tahu apa yang perlu dicek.',
       },
     ],
+  },
+  preview: {
+    heading: 'Lihat aplikasinya dulu.',
+    intro: 'Kasir mencatat pesanan. Anda membaca angkanya.',
+    lead: 'Tampilan asli aplikasi kasir dan dasbor pemilik Ansilum, dengan contoh sebuah kedai kopi.',
+    label: 'Tampilan Ansilum',
+    business: 'Kedai Kopi Contoh',
+    sample: 'Data contoh',
+    steps: 'Langkah di kasir',
+    play: 'Putar',
+    pause: 'Jeda',
+    views: [
+      {
+        id: 'pos',
+        tab: 'Kasir',
+        surface: 'Aplikasi kasir di tablet',
+        title: 'Catat pesanan dalam beberapa ketukan.',
+        body: 'Pilih menu, atur tingkat gula atau tambah shot, lalu terima tunai, transfer, atau QRIS. Penjualan tunai tersimpan dulu di tablet, jadi kasir tetap jalan saat internet putus.',
+        alt: 'Aplikasi kasir Ansilum dengan data contoh, mencatat Es kopi susu dan Pisang goreng. Langkah:',
+        image: '/product/preview/pos-1-menu.id.webp',
+        steps: [
+          { image: '/product/preview/pos-1-menu.id.webp', label: 'Pilih menu' },
+          { image: '/product/preview/pos-2-options.id.webp', label: 'Atur pilihan' },
+          { image: '/product/preview/pos-3-order.id.webp', label: 'Cek pesanan' },
+          { image: '/product/preview/pos-4-payment.id.webp', label: 'Terima bayaran' },
+          { image: '/product/preview/pos-5-saved.id.webp', label: 'Tersimpan' },
+        ],
+      },
+      {
+        id: 'outlets',
+        tab: 'Semua outlet',
+        surface: 'Dasbor pemilik',
+        title: 'Semua outlet, hari ini, di satu layar.',
+        body: 'Penjualan masuk, jumlah pesanan, dan outlet yang sedang ramai, dibandingkan dengan kemarin di jam yang sama.',
+        alt: 'Dasbor Ansilum dengan data contoh: penjualan hari ini di dua outlet, peta outlet, dan pesanan per jam.',
+        image: '/product/preview/outlets.id.webp',
+      },
+      {
+        id: 'sales',
+        tab: 'Laporan penjualan',
+        surface: 'Dasbor pemilik',
+        title: 'Laporan penjualan yang langsung terbaca.',
+        body: 'Penjualan harian dibanding periode sebelumnya, cara pelanggan membayar, dan rata-rata belanja per pesanan.',
+        alt: 'Laporan penjualan Ansilum dengan data contoh: total penjualan, pesanan, grafik tren harian, dan metode pembayaran.',
+        image: '/product/preview/sales.id.webp',
+      },
+      {
+        id: 'analytics',
+        tab: 'Produk terlaris',
+        surface: 'Dasbor pemilik',
+        title: 'Tahu menu andalan dan jam paling ramai.',
+        body: 'Produk terlaris, laba kotor setelah biaya bahan, dan jam-jam yang butuh tambahan tenaga.',
+        alt: 'Analitik Ansilum dengan data contoh: pendapatan, laba kotor, produk terlaris, dan jam ramai.',
+        image: '/product/preview/analytics.id.webp',
+      },
+      {
+        id: 'customers',
+        tab: 'Pelanggan',
+        surface: 'Dasbor pemilik',
+        title: 'Pelanggan setia dapat poin. Anda tahu siapa yang kembali.',
+        body: 'Poin bertambah dari setiap pesanan, lengkap dengan jumlah kunjungan, total belanja, dan hadiah yang bisa ditukar.',
+        alt: 'Daftar pelanggan Ansilum dengan data contoh: anggota dengan poin, total belanja, kunjungan, dan terakhir datang.',
+        image: '/product/preview/customers.id.webp',
+      },
+    ],
+    features: {
+      heading: 'Yang sudah ada di dalamnya.',
+      items: [
+        ['Kasir di tablet atau HP', 'Pesanan, pilihan menu, dan pembayaran tunai, transfer, atau QRIS.'],
+        ['Tetap jalan saat offline', 'Penjualan tunai tetap tercatat dan tersinkron begitu internet kembali.'],
+        ['Struk dan printer', 'Cetak struk lewat printer thermal Bluetooth.'],
+        ['Laporan penjualan', 'Per hari, minggu, atau bulan, untuk tiap outlet atau semuanya.'],
+        ['Banyak outlet', 'Pantau semua cabang dari satu dasbor.'],
+        ['Stok bahan dan HPP', 'Resep mengurangi stok bahan setiap ada penjualan dan menghitung modal tiap menu.'],
+        ['Pelanggan dan poin', 'Program poin dengan hadiah yang bisa ditukar pelanggan setia.'],
+        ['Karyawan dengan PIN', 'Setiap kasir masuk dengan PIN sendiri, jadi setiap penjualan tercatat atas namanya.'],
+      ],
+      note: 'Fitur mengikuti paket yang Anda pilih.',
+      link: 'Bandingkan paket',
+    },
   },
   umkm: {
     heading: 'Dibuat untuk semua UMKM yang berjualan setiap hari.',
