@@ -14,14 +14,14 @@ type PreviewView = {
 
 const en = {
   meta: {
-    title: 'Cashier app with an AI assistant for Indonesian small businesses',
+    title: 'Cashier app for Indonesian small businesses',
     description:
-      'Ansilum is a cashier app with an AI assistant for Indonesian small businesses. Record every sale, ask about your business in everyday words, and know what to do next.',
+      'Ansilum is a cashier app for Indonesian small businesses. Record every sale, keep selling when the internet drops, and read your sales on the web. An AI assistant that answers from your own numbers is in development.',
   },
   hero: {
     headline: 'Turn daily sales into your next business decision.',
     supporting:
-      'Ansilum is a cashier app with an AI assistant for Indonesian small businesses. Record every sale, ask about your business in everyday words, and get answers from your own numbers.',
+      'Ansilum is a cashier app for Indonesian small businesses. Record every sale, even when the internet drops, and read your sales on the web. Next, an AI assistant you can ask about your business, answering from your own numbers.',
     tryIt: 'Sign up Now',
     usedBy: 'Already used by',
     flow: {
@@ -66,11 +66,11 @@ const en = {
       },
       {
         title: 'Ansilum sorts the numbers',
-        body: 'Sales are grouped by day and by product, and compared with last week. Automatically.',
+        body: 'Sales add up by day and by outlet on your web dashboard. Automatically.',
       },
       {
-        title: 'Ask in your own words',
-        body: '“Why were sales down this week?” Ansilum answers with the numbers and tells you what to check.',
+        title: 'Soon: ask in your own words',
+        body: 'The assistant we are building will answer “Why were sales down this week?” with the numbers and what to check.',
       },
     ],
   },
@@ -90,7 +90,7 @@ const en = {
         tab: 'Cashier',
         surface: 'Cashier app on a tablet',
         title: 'Ring up an order in a few taps.',
-        body: 'Pick the menu, set the sugar level or add an extra shot, then take cash, transfer, or QRIS. Cash sales are saved on the tablet first, so the till keeps going when the internet drops.',
+        body: 'Pick the menu, set the sugar level or add an extra shot, then take payment. Cash and confirmed transfers are saved on the tablet first, so the till keeps going when the internet drops. QRIS payments are recorded while online.',
         alt: 'The Ansilum cashier app with sample data, ringing up an Es kopi susu and a Pisang goreng. Step:',
         image: '/product/preview/pos-1-menu.en.webp',
         steps: [
@@ -124,7 +124,7 @@ const en = {
         tab: 'Best sellers',
         surface: 'Owner dashboard',
         title: 'Know your best sellers and your busiest hours.',
-        body: 'Top products, gross profit after the cost of ingredients, and the hours that need more hands.',
+        body: 'On the Full plan: top products, gross profit after the cost of ingredients, and the hours that need more hands.',
         alt: 'Ansilum analytics with sample data: revenue, gross profit, top products, and busy hours.',
         image: '/product/preview/analytics.en.webp',
       },
@@ -141,14 +141,14 @@ const en = {
     features: {
       heading: 'What’s inside.',
       items: [
-        ['Cashier on a tablet or phone', 'Orders, menu options, and payments by cash, transfer, or QRIS.'],
-        ['Keeps going offline', 'Cash sales are still recorded and sync once the internet is back.'],
-        ['Receipts and printers', 'Print receipts on a Bluetooth thermal printer.'],
-        ['Sales reports', 'By day, week, or month, for each outlet or all of them.'],
-        ['Several outlets', 'Watch every branch from one dashboard.'],
-        ['Stock and cost of goods', 'Recipes lower ingredient stock as you sell and give the cost of each item.'],
+        ['Cashier on a tablet or phone', 'Menu options and notes, open bills, discounts, taxes, and service charge.'],
+        ['Keeps going offline', 'Cash and confirmed transfer sales are still recorded and sync once the internet is back.'],
+        ['Receipts and printers', 'Receipts and kitchen tickets on Bluetooth, network, or USB thermal printers, 58 or 80 mm.'],
+        ['Sales reports', 'Sales for any date range on the web. Profit, margin, and top products on Full.'],
+        ['Several outlets', 'Today’s cash in and out for every outlet, live. Up to 2 outlets on Standard, 5 on Full.'],
+        ['Stock and cost of goods', 'On Standard and Full, recipes lower ingredient stock as you sell and give the cost of each item.'],
         ['Customers and points', 'A points programme with rewards your regulars can redeem.'],
-        ['Staff with their own PIN', 'Each cashier signs in with a PIN, so every sale has a name on it.'],
+        ['Staff with their own PIN', 'Each cashier signs in with a PIN and works in shifts, so every sale has a name on it.'],
       ] as [string, string][],
       note: 'Features follow the plan you choose.',
       link: 'Compare plans',
@@ -172,12 +172,12 @@ const en = {
   },
   product: {
     heading: 'A cashier app that already works hard every day.',
-    body: 'The AI assistant reads from the same cashier app your team uses. So every answer comes from your real sales.',
+    body: 'Our customers ring up sales on it every day. The AI assistant we are building will read from the same records, so its answers come from your real sales.',
     points: [
-      ['Sales reports', 'See total sales and orders by day, week, or month.'],
-      ['Best-selling products', 'See which products sell most and how much each one earns.'],
-      ['Works when the internet drops', 'Keep recording cash sales. Everything syncs when the connection is back.'],
-      ['Every outlet in one place', 'Check sales for each of your outlets from one app.'],
+      ['Sales reports', 'See your sales total and trend for any date range.'],
+      ['Best-selling products', 'On Full, see which products sell most and the gross profit on each.'],
+      ['Works when the internet drops', 'Keep recording cash and confirmed transfer sales. Everything syncs when the connection is back.'],
+      ['Every outlet in one place', 'See today’s cash in and out for each outlet from one dashboard.'],
     ] as [string, string][],
     link: 'See the product',
   },
@@ -201,8 +201,8 @@ const en = {
   },
   pricing: {
     heading: 'From Rp50,000 a month.',
-    body: 'Pay monthly for your cashier, and move up a plan whenever your business grows.',
-    ai: 'AI assistant coming soon: pay as you go with credits.',
+    body: 'Pay monthly, or yearly on Standard and Full to save 10%. Move up a plan whenever your business grows.',
+    ai: 'The AI assistant is in development and not part of any plan yet.',
     link: 'See full pricing',
   },
   faq: {
@@ -214,11 +214,11 @@ const en = {
       },
       {
         q: 'Do I need to understand AI?',
-        a: 'No. You ask the way you would ask a friend, for example “Which menu sold most this week?” Ansilum answers in plain language, with the numbers.',
+        a: 'No. When the assistant launches, you ask the way you would ask a friend, for example “Which menu sold most this week?”, and it answers in plain language, with the numbers.',
       },
       {
-        q: 'Where do the answers come from?',
-        a: 'From the sales and products recorded in your Ansilum cashier app. Each answer shows the period and the numbers it used, so you can check it yourself.',
+        q: 'Where will the answers come from?',
+        a: 'From the sales and products recorded in your Ansilum cashier app. Each answer is designed to show the period and the numbers it used, so you can check it yourself.',
       },
       {
         q: 'When can I use the AI assistant?',
@@ -226,7 +226,15 @@ const en = {
       },
       {
         q: 'What if the internet goes down?',
-        a: 'Keep recording cash sales on a prepared device. Sales sync when the connection comes back. QRIS and card payments, and the AI assistant, need internet.',
+        a: 'Keep recording cash and confirmed transfer sales on a prepared device. Sales sync when the connection comes back. Recording QRIS payments, the web dashboard, and the AI assistant need internet.',
+      },
+      {
+        q: 'Can customers pay with QRIS?',
+        a: 'Yes, with your own QRIS code. Ansilum records the QRIS payment on the bill while you are online. It does not create QR codes or move money for you.',
+      },
+      {
+        q: 'How many outlets can I have?',
+        a: 'Basic covers 1 business with 1 outlet. Standard covers up to 2 businesses and 2 outlets in total, and Full up to 5 of each. No plan limits staff, products, or cashier devices.',
       },
       {
         q: 'How do I start?',
@@ -241,14 +249,14 @@ export type HomeContent = typeof en
 
 const id: HomeContent = {
   meta: {
-    title: 'Aplikasi kasir dengan asisten AI untuk UMKM Indonesia',
+    title: 'Aplikasi kasir untuk UMKM Indonesia',
     description:
-      'Ansilum adalah aplikasi kasir dengan asisten AI untuk UMKM Indonesia. Catat setiap penjualan, tanya soal usaha Anda dengan bahasa sehari-hari, dan tahu langkah berikutnya.',
+      'Ansilum adalah aplikasi kasir untuk UMKM Indonesia. Catat setiap penjualan, tetap jualan saat internet mati, dan baca penjualan Anda di web. Asisten AI yang menjawab dari angka Anda sendiri sedang dikembangkan.',
   },
   hero: {
     headline: 'Ubah penjualan harian menjadi langkah usaha berikutnya.',
     supporting:
-      'Ansilum adalah aplikasi kasir dengan asisten AI untuk UMKM Indonesia. Catat setiap penjualan, tanya apa saja soal usaha Anda, dan dapatkan jawaban dari angka penjualan Anda sendiri.',
+      'Ansilum adalah aplikasi kasir untuk UMKM Indonesia. Catat setiap penjualan, bahkan saat internet mati, dan baca penjualan Anda di web. Berikutnya, asisten AI yang bisa ditanya soal usaha Anda dan menjawab dari angka Anda sendiri.',
     tryIt: 'Daftar Sekarang',
     usedBy: 'Sudah dipakai oleh',
     flow: {
@@ -293,11 +301,11 @@ const id: HomeContent = {
       },
       {
         title: 'Ansilum merapikan angkanya',
-        body: 'Penjualan otomatis dikelompokkan per hari dan per produk, lalu dibandingkan dengan minggu lalu.',
+        body: 'Penjualan otomatis terjumlah per hari dan per outlet di dasbor web Anda.',
       },
       {
-        title: 'Tanya dengan bahasa sendiri',
-        body: '“Kenapa penjualan minggu ini turun?” Ansilum menjawab dengan angkanya dan memberi tahu apa yang perlu dicek.',
+        title: 'Segera: tanya dengan bahasa sendiri',
+        body: 'Asisten yang sedang kami bangun akan menjawab “Kenapa penjualan minggu ini turun?” dengan angkanya dan apa yang perlu dicek.',
       },
     ],
   },
@@ -317,7 +325,7 @@ const id: HomeContent = {
         tab: 'Kasir',
         surface: 'Aplikasi kasir di tablet',
         title: 'Catat pesanan dalam beberapa ketukan.',
-        body: 'Pilih menu, atur tingkat gula atau tambah shot, lalu terima tunai, transfer, atau QRIS. Penjualan tunai tersimpan dulu di tablet, jadi kasir tetap jalan saat internet putus.',
+        body: 'Pilih menu, atur tingkat gula atau tambah shot, lalu terima pembayaran. Tunai dan transfer yang sudah dikonfirmasi tersimpan dulu di tablet, jadi kasir tetap jalan saat internet putus. Pembayaran QRIS dicatat saat online.',
         alt: 'Aplikasi kasir Ansilum dengan data contoh, mencatat Es kopi susu dan Pisang goreng. Langkah:',
         image: '/product/preview/pos-1-menu.id.webp',
         steps: [
@@ -351,7 +359,7 @@ const id: HomeContent = {
         tab: 'Produk terlaris',
         surface: 'Dasbor pemilik',
         title: 'Tahu menu andalan dan jam paling ramai.',
-        body: 'Produk terlaris, laba kotor setelah biaya bahan, dan jam-jam yang butuh tambahan tenaga.',
+        body: 'Di paket Full: produk terlaris, laba kotor setelah biaya bahan, dan jam-jam yang butuh tambahan tenaga.',
         alt: 'Analitik Ansilum dengan data contoh: pendapatan, laba kotor, produk terlaris, dan jam ramai.',
         image: '/product/preview/analytics.id.webp',
       },
@@ -368,14 +376,14 @@ const id: HomeContent = {
     features: {
       heading: 'Yang sudah ada di dalamnya.',
       items: [
-        ['Kasir di tablet atau HP', 'Pesanan, pilihan menu, dan pembayaran tunai, transfer, atau QRIS.'],
-        ['Tetap jalan saat offline', 'Penjualan tunai tetap tercatat dan tersinkron begitu internet kembali.'],
-        ['Struk dan printer', 'Cetak struk lewat printer thermal Bluetooth.'],
-        ['Laporan penjualan', 'Per hari, minggu, atau bulan, untuk tiap outlet atau semuanya.'],
-        ['Banyak outlet', 'Pantau semua cabang dari satu dasbor.'],
-        ['Stok bahan dan HPP', 'Resep mengurangi stok bahan setiap ada penjualan dan menghitung modal tiap menu.'],
+        ['Kasir di tablet atau HP', 'Pilihan menu dan catatan, tagihan terbuka, diskon, pajak, dan biaya layanan.'],
+        ['Tetap jalan saat offline', 'Penjualan tunai dan transfer terkonfirmasi tetap tercatat dan tersinkron begitu internet kembali.'],
+        ['Struk dan printer', 'Struk dan tiket dapur ke printer thermal Bluetooth, jaringan, atau USB, 58 atau 80 mm.'],
+        ['Laporan penjualan', 'Penjualan per periode di web. Laba, margin, dan produk terlaris di paket Full.'],
+        ['Banyak outlet', 'Kas masuk dan keluar tiap outlet hari ini, langsung. Hingga 2 outlet di Standard, 5 di Full.'],
+        ['Stok bahan dan HPP', 'Di paket Standard dan Full, resep mengurangi stok bahan setiap ada penjualan dan menghitung modal tiap menu.'],
         ['Pelanggan dan poin', 'Program poin dengan hadiah yang bisa ditukar pelanggan setia.'],
-        ['Karyawan dengan PIN', 'Setiap kasir masuk dengan PIN sendiri, jadi setiap penjualan tercatat atas namanya.'],
+        ['Karyawan dengan PIN', 'Setiap kasir masuk dengan PIN sendiri dan bekerja per shift, jadi setiap penjualan tercatat atas namanya.'],
       ],
       note: 'Fitur mengikuti paket yang Anda pilih.',
       link: 'Bandingkan paket',
@@ -399,12 +407,12 @@ const id: HomeContent = {
   },
   product: {
     heading: 'Aplikasi kasir yang sudah bekerja keras setiap hari.',
-    body: 'Asisten AI membaca data dari aplikasi kasir yang sama dengan yang dipakai tim Anda. Jadi setiap jawaban berasal dari penjualan Anda yang sebenarnya.',
+    body: 'Pelanggan kami mencatat penjualan dengannya setiap hari. Asisten AI yang sedang kami bangun akan membaca catatan yang sama, jadi jawabannya berasal dari penjualan Anda yang sebenarnya.',
     points: [
-      ['Laporan penjualan', 'Lihat total penjualan dan jumlah pesanan per hari, minggu, atau bulan.'],
-      ['Produk terlaris', 'Lihat produk yang paling laku dan berapa pendapatan dari masing-masing.'],
-      ['Tetap jalan saat internet putus', 'Penjualan tunai tetap tercatat. Data tersinkron begitu internet kembali.'],
-      ['Semua outlet di satu tempat', 'Pantau penjualan setiap outlet dari satu aplikasi.'],
+      ['Laporan penjualan', 'Lihat total dan tren penjualan untuk periode mana pun.'],
+      ['Produk terlaris', 'Di paket Full, lihat produk yang paling laku dan laba kotor dari masing-masing.'],
+      ['Tetap jalan saat internet putus', 'Penjualan tunai dan transfer terkonfirmasi tetap tercatat. Data tersinkron begitu internet kembali.'],
+      ['Semua outlet di satu tempat', 'Pantau kas masuk dan keluar tiap outlet hari ini dari satu dasbor.'],
     ],
     link: 'Lihat produknya',
   },
@@ -428,8 +436,8 @@ const id: HomeContent = {
   },
   pricing: {
     heading: 'Mulai Rp50.000 per bulan.',
-    body: 'Bayar bulanan untuk kasir Anda, dan naik paket kapan saja saat usaha berkembang.',
-    ai: 'Asisten AI segera hadir: bayar sesuai pemakaian dengan kredit.',
+    body: 'Bayar bulanan, atau tahunan untuk Standard dan Full agar hemat 10%. Naik paket kapan saja saat usaha berkembang.',
+    ai: 'Asisten AI sedang dikembangkan dan belum termasuk dalam paket mana pun.',
     link: 'Lihat detail harga',
   },
   faq: {
@@ -441,11 +449,11 @@ const id: HomeContent = {
       },
       {
         q: 'Apakah saya harus paham AI?',
-        a: 'Tidak. Cukup bertanya seperti bertanya ke teman, misalnya “Menu apa yang paling laku minggu ini?” Ansilum menjawab dengan bahasa sederhana, lengkap dengan angkanya.',
+        a: 'Tidak. Saat asisten diluncurkan, Anda cukup bertanya seperti bertanya ke teman, misalnya “Menu apa yang paling laku minggu ini?”, dan asisten menjawab dengan bahasa sederhana, lengkap dengan angkanya.',
       },
       {
-        q: 'Jawabannya berasal dari mana?',
-        a: 'Dari penjualan dan produk yang tercatat di aplikasi kasir Ansilum Anda. Setiap jawaban menunjukkan periode dan angka yang dipakai, jadi Anda bisa mengeceknya sendiri.',
+        q: 'Jawabannya akan berasal dari mana?',
+        a: 'Dari penjualan dan produk yang tercatat di aplikasi kasir Ansilum Anda. Setiap jawaban dirancang untuk menunjukkan periode dan angka yang dipakai, jadi Anda bisa mengeceknya sendiri.',
       },
       {
         q: 'Kapan asisten AI bisa saya pakai?',
@@ -453,7 +461,15 @@ const id: HomeContent = {
       },
       {
         q: 'Bagaimana kalau internet mati?',
-        a: 'Penjualan tunai tetap bisa dicatat di perangkat yang sudah disiapkan. Data tersinkron saat internet kembali. Pembayaran QRIS dan kartu, juga asisten AI, membutuhkan internet.',
+        a: 'Penjualan tunai dan transfer terkonfirmasi tetap bisa dicatat di perangkat yang sudah disiapkan. Data tersinkron saat internet kembali. Pencatatan pembayaran QRIS, dasbor web, dan asisten AI membutuhkan internet.',
+      },
+      {
+        q: 'Apakah pelanggan bisa bayar dengan QRIS?',
+        a: 'Bisa, dengan kode QRIS milik Anda sendiri. Ansilum mencatat pembayaran QRIS pada tagihan selama online. Ansilum tidak membuat kode QR dan tidak memproses uangnya.',
+      },
+      {
+        q: 'Berapa outlet yang bisa saya punya?',
+        a: 'Basic untuk 1 usaha dengan 1 outlet. Standard hingga 2 usaha dan total 2 outlet, dan Full hingga 5 usaha dan 5 outlet. Tidak ada paket yang membatasi karyawan, produk, atau perangkat kasir.',
       },
       {
         q: 'Bagaimana cara mulai?',

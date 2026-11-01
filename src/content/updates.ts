@@ -21,10 +21,10 @@ export const updates: UpdateEntry[] = [
       id: 'Asisten AI Ansilum',
     },
     body: {
-      en: 'Owners ask about their sales in everyday words and get answers with the numbers behind them. Ansilum does the maths; Claude explains the result. We are building it now.',
-      id: 'Pemilik usaha bertanya soal penjualan dengan bahasa sehari-hari dan mendapat jawaban lengkap dengan angkanya. Ansilum menghitung angkanya; Claude menjelaskan hasilnya. Sedang kami bangun sekarang.',
+      en: 'Owners ask about their sales in everyday words and get answers with the numbers behind them. Ansilum does the maths; an AI model explains the result. We are building it now.',
+      id: 'Pemilik usaha bertanya soal penjualan dengan bahasa sehari-hari dan mendapat jawaban lengkap dengan angkanya. Ansilum menghitung angkanya; model AI menjelaskan hasilnya. Sedang kami bangun sekarang.',
     },
-    evidence: { href: '/product#claude', label: { en: 'How it works', id: 'Cara kerjanya' } },
+    evidence: { href: '/product#ai', label: { en: 'How it works', id: 'Cara kerjanya' } },
   },
   {
     date: '2026-10-09',

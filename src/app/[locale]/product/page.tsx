@@ -16,12 +16,12 @@ const content = {
     meta: {
       title: 'Cashier app with an AI assistant',
       description:
-        'How Ansilum records sales, how the AI assistant built with Claude explains them, what works without internet, and what is available today.',
+        'How Ansilum records sales, how the AI assistant we are building will explain them, what works without internet, and what is available today.',
     },
-    title: 'A cashier app that answers questions about your business.',
-    lead: 'Ansilum records every sale. Then you ask, in your own words, what happened, and get an answer with the numbers and what to check next.',
+    title: 'A cashier app today. An assistant that answers your questions next.',
+    lead: 'Ansilum records every sale today. Next, we are building an assistant you can ask, in your own words, what happened, and that answers with the numbers and what to check next.',
     answers: {
-      heading: 'Every answer can be checked.',
+      heading: 'Designed so every answer can be checked.',
       points: [
         ['The period is always clear', 'You see exactly which days the answer is about.'],
         ['Numbers behind every sentence', '“Sales fell 10%, from Rp12,000,000 to Rp10,800,000.” Not just “sales fell”.'],
@@ -29,31 +29,31 @@ const content = {
         ['A next step you can act on', 'Something practical to check, like coffee sales on Tuesday.'],
       ] as [string, string][],
     },
-    claude: {
-      heading: 'Built with Claude by Anthropic.',
-      body: 'We are building the Ansilum assistant with Claude, an AI model made by Anthropic. Ansilum does the maths, so the numbers always match your cashier records. Claude understands your question and explains the result in plain Indonesian or English.',
+    ai: {
+      heading: 'Ansilum does the maths. The AI explains it.',
+      body: 'In the assistant we are building, Ansilum calculates the totals and comparisons from your cashier records, so the numbers match them. An AI language model then reads your question and explains the result in plain Indonesian or English.',
       steps: [
         ['Ansilum keeps your sales', 'Every sale from the cashier is saved with its products, amount, and time.'],
         ['Ansilum does the maths', 'Totals and comparisons, like this week against last week, are calculated by Ansilum.'],
-        ['Claude explains', 'Claude reads your question and explains the result in everyday language.'],
+        ['The AI explains', 'The AI model reads your question and explains the result in everyday language.'],
         ['You decide', 'Check the numbers, then choose what to do.'],
       ] as [string, string][],
-      note: 'The assistant only sees the outlets your account can access. It never changes prices, stock, or payments.',
+      note: 'The assistant only sees the outlets your account can access. It reads records and cannot change prices, stock, or payments.',
     },
     foundation: {
       heading: 'The cashier app underneath.',
-      body: 'Our customers already use the Ansilum cashier app every day. The assistant reads from the same records.',
+      body: 'Our customers already use the Ansilum cashier app every day. The assistant will read from the same records.',
       features: [
         ['Ring up sales', 'Pick products, take payment, save the sale.'],
         ['Manage your products', 'Keep products and prices up to date for your cashier.'],
-        ['Read your sales report', 'Sales and orders for any period and outlet.'],
+        ['Read your sales report', 'Your sales total and trend for any date range, on the web dashboard.'],
       ] as [string, string][],
     },
     offline: {
       heading: 'When the internet goes down.',
       columns: [
-        ['Keeps working', 'Recording cash sales on a prepared device. Receipts print on supported printers.'],
-        ['Needs internet', 'First setup, adding products, cashier sign-in, QRIS and card payments, the sales report, and the AI assistant.'],
+        ['Keeps working', 'Recording cash and confirmed transfer sales on a prepared device. Receipts and kitchen tickets print on Bluetooth, USB, or network printers.'],
+        ['Needs internet', 'First setup, adding products, cashier sign-in, recording QRIS payments, the web dashboard and reports, and the AI assistant.'],
         ['When it comes back', 'Saved sales sync automatically. Now and then a sale needs a quick manual check.'],
       ] as [string, string][],
     },
@@ -64,11 +64,12 @@ const content = {
       status: 'Status',
       labels: { beta: 'Available (beta)', dev: 'Coming soon', later: 'Later' } as Record<Status, string>,
       rows: [
-        ['Cashier app: sales, products, receipts', 'beta'],
-        ['Sales report by period and outlet', 'beta'],
-        ['Cash sales without internet', 'beta'],
-        ['AI assistant for sales and products', 'dev'],
-        ['Stock, recipes, and costs in AI answers', 'later'],
+        ['Cashier app: sales, open bills, receipts, kitchen tickets', 'beta'],
+        ['Cash and transfer sales without internet', 'beta'],
+        ['Web sales dashboard for any date range', 'beta'],
+        ['Stock, recipes, and cost of goods (Standard and Full)', 'beta'],
+        ['Profit, margin, and stock analytics (Full)', 'beta'],
+        ['AI assistant for sales, products, and stock', 'dev'],
       ] as [string, Status][],
     },
     access: {
@@ -76,7 +77,7 @@ const content = {
       steps: [
         ['Request a demo', 'Tell us about your business.'],
         ['Talk it through', 'We look at how you sell and show you the app.'],
-        ['Pick a plan', 'Plans start at Rp50,000 a month. We help you choose.'],
+        ['Pick a plan', 'Basic Rp50,000, Standard Rp99,000, or Full Rp199,000 a month. We help you choose.'],
         ['Start selling', 'We load your products and set up your devices.'],
       ] as [string, string][],
       link: 'More about getting started',
@@ -86,12 +87,12 @@ const content = {
     meta: {
       title: 'Aplikasi kasir dengan asisten AI',
       description:
-        'Cara Ansilum mencatat penjualan, cara asisten AI yang dibangun dengan Claude menjelaskannya, apa yang tetap jalan tanpa internet, dan apa yang tersedia hari ini.',
+        'Cara Ansilum mencatat penjualan, cara asisten AI yang sedang kami bangun akan menjelaskannya, apa yang tetap jalan tanpa internet, dan apa yang tersedia hari ini.',
     },
-    title: 'Aplikasi kasir yang bisa menjawab pertanyaan soal usaha Anda.',
-    lead: 'Ansilum mencatat setiap penjualan. Lalu Anda cukup bertanya dengan bahasa sendiri, dan mendapat jawaban lengkap dengan angka dan apa yang perlu dicek.',
+    title: 'Aplikasi kasir hari ini. Asisten yang menjawab pertanyaan Anda berikutnya.',
+    lead: 'Ansilum mencatat setiap penjualan hari ini. Berikutnya, kami sedang membangun asisten yang bisa Anda tanya dengan bahasa sendiri, dan menjawab lengkap dengan angka dan apa yang perlu dicek.',
     answers: {
-      heading: 'Setiap jawaban bisa dicek.',
+      heading: 'Dirancang agar setiap jawaban bisa dicek.',
       points: [
         ['Periodenya selalu jelas', 'Anda tahu persis jawaban itu membahas tanggal berapa saja.'],
         ['Ada angka di setiap kalimat', '“Penjualan turun 10%, dari Rp12.000.000 menjadi Rp10.800.000.” Bukan sekadar “penjualan turun”.'],
@@ -99,31 +100,31 @@ const content = {
         ['Langkah yang bisa langsung dikerjakan', 'Hal praktis untuk dicek, misalnya penjualan kopi hari Selasa.'],
       ],
     },
-    claude: {
-      heading: 'Dibangun dengan Claude dari Anthropic.',
-      body: 'Kami membangun asisten Ansilum dengan Claude, model AI buatan Anthropic. Ansilum yang menghitung angkanya, jadi angkanya selalu sesuai catatan kasir. Claude memahami pertanyaan Anda dan menjelaskan hasilnya dengan bahasa Indonesia atau Inggris yang mudah.',
+    ai: {
+      heading: 'Ansilum yang menghitung. AI yang menjelaskan.',
+      body: 'Pada asisten yang sedang kami bangun, Ansilum menghitung total dan perbandingan dari catatan kasir Anda, jadi angkanya sesuai dengan catatan itu. Model bahasa AI lalu membaca pertanyaan Anda dan menjelaskan hasilnya dengan bahasa Indonesia atau Inggris yang mudah.',
       steps: [
         ['Ansilum menyimpan penjualan', 'Setiap penjualan di kasir disimpan beserta produk, jumlah, dan waktunya.'],
         ['Ansilum menghitung angkanya', 'Total dan perbandingan, misalnya minggu ini dengan minggu lalu, dihitung oleh Ansilum.'],
-        ['Claude menjelaskan', 'Claude membaca pertanyaan Anda dan menjelaskan hasilnya dengan bahasa sehari-hari.'],
+        ['AI menjelaskan', 'Model AI membaca pertanyaan Anda dan menjelaskan hasilnya dengan bahasa sehari-hari.'],
         ['Anda yang memutuskan', 'Cek angkanya, lalu tentukan langkah Anda.'],
       ],
-      note: 'Asisten hanya melihat outlet yang bisa diakses akun Anda. Asisten tidak pernah mengubah harga, stok, atau pembayaran.',
+      note: 'Asisten hanya melihat outlet yang bisa diakses akun Anda. Asisten hanya membaca catatan dan tidak bisa mengubah harga, stok, atau pembayaran.',
     },
     foundation: {
       heading: 'Aplikasi kasir di baliknya.',
-      body: 'Pelanggan kami sudah memakai aplikasi kasir Ansilum setiap hari. Asisten membaca dari catatan yang sama.',
+      body: 'Pelanggan kami sudah memakai aplikasi kasir Ansilum setiap hari. Asisten akan membaca dari catatan yang sama.',
       features: [
         ['Catat penjualan', 'Pilih produk, terima pembayaran, simpan penjualan.'],
         ['Kelola produk', 'Atur produk dan harga yang dipakai kasir.'],
-        ['Baca laporan penjualan', 'Penjualan dan jumlah pesanan untuk periode dan outlet mana pun.'],
+        ['Baca laporan penjualan', 'Total dan tren penjualan untuk periode mana pun, di dasbor web.'],
       ],
     },
     offline: {
       heading: 'Saat internet mati.',
       columns: [
-        ['Tetap jalan', 'Mencatat penjualan tunai di perangkat yang sudah disiapkan. Struk tetap tercetak di printer yang didukung.'],
-        ['Butuh internet', 'Penyiapan awal, menambah produk, masuk sebagai kasir, pembayaran QRIS dan kartu, laporan penjualan, dan asisten AI.'],
+        ['Tetap jalan', 'Mencatat penjualan tunai dan transfer terkonfirmasi di perangkat yang sudah disiapkan. Struk dan tiket dapur tetap tercetak di printer Bluetooth, USB, atau jaringan.'],
+        ['Butuh internet', 'Penyiapan awal, menambah produk, masuk sebagai kasir, pencatatan pembayaran QRIS, dasbor web dan laporan, serta asisten AI.'],
         ['Saat internet kembali', 'Penjualan yang tersimpan tersinkron otomatis. Sesekali ada penjualan yang perlu dicek manual.'],
       ],
     },
@@ -134,11 +135,12 @@ const content = {
       status: 'Status',
       labels: { beta: 'Tersedia (beta)', dev: 'Segera hadir', later: 'Berikutnya' },
       rows: [
-        ['Aplikasi kasir: penjualan, produk, struk', 'beta'],
-        ['Laporan penjualan per periode dan outlet', 'beta'],
-        ['Penjualan tunai tanpa internet', 'beta'],
-        ['Asisten AI untuk penjualan dan produk', 'dev'],
-        ['Stok, resep, dan biaya dalam jawaban AI', 'later'],
+        ['Aplikasi kasir: penjualan, tagihan terbuka, struk, tiket dapur', 'beta'],
+        ['Penjualan tunai dan transfer tanpa internet', 'beta'],
+        ['Dasbor penjualan web per periode', 'beta'],
+        ['Stok, resep, dan HPP (Standard dan Full)', 'beta'],
+        ['Analitik laba, margin, dan stok (Full)', 'beta'],
+        ['Asisten AI untuk penjualan, produk, dan stok', 'dev'],
       ],
     },
     access: {
@@ -146,7 +148,7 @@ const content = {
       steps: [
         ['Minta demo', 'Ceritakan sedikit soal usaha Anda.'],
         ['Ngobrol bersama', 'Kami lihat cara Anda berjualan dan tunjukkan aplikasinya.'],
-        ['Pilih paket', 'Paket mulai Rp50.000 per bulan. Kami bantu memilih.'],
+        ['Pilih paket', 'Basic Rp50.000, Standard Rp99.000, atau Full Rp199.000 per bulan. Kami bantu memilih.'],
         ['Mulai berjualan', 'Kami masukkan produk Anda dan siapkan perangkatnya.'],
       ],
       link: 'Selengkapnya soal cara mulai',
@@ -190,14 +192,14 @@ export default function ProductPage({ params }: Props) {
         </Container>
       </section>
 
-      <section id="claude" className="scroll-mt-20">
+      <section id="ai" className="scroll-mt-20">
         <Container className="py-20 sm:py-28">
           <div className="max-w-3xl">
-            <h2 className="display-lg text-balance" data-reveal>{copy.claude.heading}</h2>
-            <p className="lead mt-6" data-reveal>{copy.claude.body}</p>
+            <h2 className="display-lg text-balance" data-reveal>{copy.ai.heading}</h2>
+            <p className="lead mt-6" data-reveal>{copy.ai.body}</p>
           </div>
           <ol className="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-            {copy.claude.steps.map(([title, body], index) => (
+            {copy.ai.steps.map(([title, body], index) => (
               <li key={title} data-reveal style={{ '--delay': `${index * 120}ms` } as React.CSSProperties}>
                 <PulseRule className={index === 2 ? '!bg-brand' : undefined} />
                 <span className="mt-6 block text-sm font-bold text-brand-ink">0{index + 1}</span>
@@ -206,7 +208,7 @@ export default function ProductPage({ params }: Props) {
               </li>
             ))}
           </ol>
-          <p className="mt-12 max-w-3xl border-l-2 border-leaf pl-5 text-lg leading-8">{copy.claude.note}</p>
+          <p className="mt-12 max-w-3xl border-l-2 border-leaf pl-5 text-lg leading-8">{copy.ai.note}</p>
         </Container>
       </section>
 

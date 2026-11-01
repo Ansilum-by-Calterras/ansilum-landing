@@ -44,7 +44,7 @@ const en = {
       ]
     },
     tagline:
-      'A cashier app with an AI assistant for Indonesian small businesses.',
+      'A cashier app for Indonesian small businesses, with an AI assistant in development.',
     builder:
       'Ansilum started in March 2024. It is built by Calterras, a founder-led software venture in Indonesia.',
     groups: [
@@ -86,7 +86,7 @@ const en = {
   },
   finalCta: {
     heading: "Let's talk about your business.",
-    body: 'Tell us how you sell today. We will show you the cashier app and the AI assistant, and work out together what fits your business.',
+    body: 'Tell us how you sell today. We will show you the cashier app and a preview of the AI assistant we are building, and work out together which plan fits your business.',
     note: 'Free, and it does not start a subscription.',
   },
 }
@@ -134,7 +134,7 @@ const id: CommonContent = {
       ]
     },
     tagline:
-      'Aplikasi kasir dengan asisten AI untuk usaha kecil di Indonesia.',
+      'Aplikasi kasir untuk usaha kecil di Indonesia, dengan asisten AI yang sedang dikembangkan.',
     builder:
       'Ansilum dimulai pada Maret 2024. Dibangun oleh Calterras, perusahaan perangkat lunak yang dipimpin pendirinya di Indonesia.',
     groups: [
@@ -177,7 +177,7 @@ const id: CommonContent = {
   },
   finalCta: {
     heading: 'Mari bahas kebutuhan usaha Anda.',
-    body: 'Ceritakan cara Anda berjualan. Kami tunjukkan aplikasi kasir dan asisten AI-nya, lalu kita cari bersama yang paling cocok untuk usaha Anda.',
+    body: 'Ceritakan cara Anda berjualan. Kami tunjukkan aplikasi kasir dan pratinjau asisten AI yang sedang kami bangun, lalu kita cari bersama paket yang paling cocok untuk usaha Anda.',
     note: 'Gratis, dan tidak memulai langganan.',
   },
 }

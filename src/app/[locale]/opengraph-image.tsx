@@ -1,18 +1,18 @@
 import { ImageResponse } from 'next/og'
 
-export const alt = 'Ansilum — cashier app with an AI assistant for Indonesian small businesses'
+export const alt = 'Ansilum — cashier app for Indonesian small businesses'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
 const copy = {
   en: {
     headline: 'Turn daily sales into your next business decision.',
-    sub: 'A cashier app with an AI assistant for Indonesian small businesses.',
+    sub: 'A cashier app for Indonesian small businesses. AI assistant in development.',
     question: 'What changed in my sales this week?',
   },
   id: {
     headline: 'Ubah penjualan harian menjadi langkah usaha berikutnya.',
-    sub: 'Aplikasi kasir dengan asisten AI untuk UMKM Indonesia.',
+    sub: 'Aplikasi kasir untuk UMKM Indonesia. Asisten AI sedang dikembangkan.',
     question: 'Apa yang berubah dari penjualan minggu ini?',
   },
 }

@@ -1,6 +1,6 @@
 # Ansilum website
 
-Bilingual marketing website for **Ansilum**, a cashier app with an AI assistant for Indonesian UMKM, built by **Calterras**. Indonesian lives at `/id` (the default) and English at `/en`. The primary conversion is **Minta demo / Request a demo**. The AI assistant is being built with Claude; the site shows it as a scripted example over sample data and does not call a model.
+Bilingual marketing website for **Ansilum**, a cashier app for Indonesian UMKM with an AI assistant in development, built by **Calterras**. Indonesian lives at `/id` (the default) and English at `/en`. The primary conversion is **Minta demo / Request a demo**. The site shows the assistant as a scripted example over sample data and does not call a model. Every product claim follows `docs/CLAIMS.md`.
 
 ## Local development
 
@@ -29,7 +29,7 @@ The launch check intentionally fails until contact, canonical domain, and durabl
 Every public page exists under both `/id/...` and `/en/...`. `src/middleware.ts` redirects unprefixed paths, and the language switch keeps the visitor on the equivalent page.
 
 - `/`: hero, the interactive assistant example (`#demo`), how it works, the product preview (`#preview`: real screens of the cashier app and owner dashboard, then what's inside), examples for every kind of UMKM, the cashier app, businesses using Ansilum, mission, FAQ.
-- `/product`: the assistant, how Claude fits in, the cashier app, offline behaviour, what is available today, and how to start.
+- `/product`: the assistant, how the AI fits in, the cashier app, offline behaviour, what is available today, and how to start.
 - `/about`: a letter from the founder, Saifulloh Fadli, plus Calterras and the timeline. `/updates`: dated milestones with evidence.
 - `/demo`: validated request form. `/pricing`: Basic, Standard, and Full plans (`src/content/pricing.ts`), AI credits coming soon, and a comparison table.
 - `/privacy`, `/terms`, `/security`: website data flows, demo terms, and bounded product information.

@@ -32,7 +32,7 @@ const content = {
     profile: 'View profile',
     factsHeading: 'At a glance',
     facts: [
-      ['Product', 'Ansilum, a cashier app with an AI assistant'],
+      ['Product', 'Ansilum, a cashier app, with an AI assistant in development'],
       ['Started', 'March 2024'],
       ['Built by', 'Calterras'],
       ['Based in', 'Indonesia'],
@@ -80,7 +80,7 @@ const content = {
     profile: 'Lihat profil',
     factsHeading: 'Sekilas',
     facts: [
-      ['Produk', 'Ansilum, aplikasi kasir dengan asisten AI'],
+      ['Produk', 'Ansilum, aplikasi kasir, dengan asisten AI yang sedang dikembangkan'],
       ['Dimulai', 'Maret 2024'],
       ['Dibangun oleh', 'Calterras'],
       ['Berbasis di', 'Indonesia'],

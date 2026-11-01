@@ -1,67 +1,24 @@
-import { featureOrder, plans, pricingContent } from '@/content/pricing'
+import { featureOrder, plans, pricingContent, type Plan } from '@/content/pricing'
 import type { Locale } from '@/i18n/config'
 import { rupiah } from '@/lib/format'
 import { CheckIcon, MinusIcon, SparklesIcon } from '@heroicons/react/24/outline'
 import { clsx } from 'clsx'
-import { DemoLink } from './demo-link'
 
 type Style = React.CSSProperties & Record<`--${string}`, string | number>
 
-/** Three plans side by side in one bordered grid; Standard is highlighted. */
-export function PlanCards({ locale }: { locale: Locale }) {
-  const copy = pricingContent[locale]
+/** The limits and billing facts that apply to every plan. */
+export function PlanNotes({ locale }: { locale: Locale }) {
   return (
-    <div className="grid overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-3 md:gap-px">
-      {plans.map((plan, index) => {
-        const name = copy.plans[plan.key]
-        const highlighted = plan.key === 'standard'
-        return (
-          <div
-            key={plan.key}
-            data-reveal
-            style={{ '--delay': `${index * 120}ms` } as Style}
-            className={clsx(
-              'relative flex flex-col bg-white px-7 pb-8 pt-9 [&:not(:first-child)]:border-t [&:not(:first-child)]:border-line md:[&:not(:first-child)]:border-t-0',
-              highlighted && 'bg-[linear-gradient(180deg,#FFEEE6_0%,#FFFFFF_45%)]',
-            )}
-          >
-            {highlighted && <span className="absolute inset-x-0 top-0 h-1 bg-brand" aria-hidden="true" />}
-            <div className="flex items-center justify-between gap-3">
-              <h3 className="text-xl font-bold tracking-[-0.02em]">{name.name}</h3>
-              {highlighted && (
-                <span className="rounded-md bg-brand px-2 py-0.5 text-xs font-semibold text-white">{copy.recommended}</span>
-              )}
-            </div>
-            <p className="mt-2 min-h-12 leading-6 text-soft">{name.tagline}</p>
-            <p className="mt-6 flex items-baseline gap-1">
-              <span className="text-4xl font-bold tracking-[-0.04em]">{rupiah(plan.price, locale)}</span>
-              <span className="text-soft">{copy.perMonth}</span>
-            </p>
-            <ul className="mt-7 flex-1 space-y-3 border-t border-line pt-6">
-              <li className="font-semibold">{copy.outlets(plan.outlets)}</li>
-              {plan.features.map((feature) => (
-                <li key={feature} className="flex items-start gap-2.5">
-                  <CheckIcon className="mt-1 size-4 shrink-0 text-leaf" strokeWidth={2.5} aria-hidden="true" />
-                  {copy.features[feature]}
-                </li>
-              ))}
-            </ul>
-            <DemoLink
-              locale={locale}
-              placement={`pricing-${plan.key}`}
-              className={clsx('mt-8 w-full', !highlighted && '!bg-white !text-ink ring-1 ring-inset ring-line hover:!bg-mist')}
-            >
-              {name.cta}
-            </DemoLink>
-          </div>
-        )
-      })}
-    </div>
+    <ul className="space-y-2 text-sm leading-6 text-soft">
+      {pricingContent[locale].notes.map((note) => (
+        <li key={note}>{note}</li>
+      ))}
+    </ul>
   )
 }
 
-/** Pay-as-you-go credits for the AI assistant, with a credit meter that fills and drains. */
-export function AiCredits({ locale }: { locale: Locale }) {
+/** The AI assistant's status: in development and not part of any plan yet. */
+export function AiStatus({ locale }: { locale: Locale }) {
   const copy = pricingContent[locale].ai
   return (
     <div
@@ -118,16 +75,26 @@ export function CompareTable({ locale }: { locale: Locale }) {
           </tr>
         </thead>
         <tbody>
-          <tr className="border-b border-line">
-            <th scope="row" className="py-4 pr-4 font-medium">
-              {copy.maxOutlets}
-            </th>
-            {plans.map((plan) => (
-              <td key={plan.key} className="py-4 text-center font-semibold">
-                {plan.outlets ?? copy.unlimited}
-              </td>
-            ))}
-          </tr>
+          {(
+            [
+              [copy.rows.monthly, (plan: Plan) => rupiah(plan.price, locale)],
+              [copy.rows.yearly, (plan: Plan) => (plan.yearly === null ? copy.notOffered : rupiah(plan.yearly, locale))],
+              [copy.rows.businesses, (plan: Plan) => plan.businesses],
+              [copy.rows.outlets, (plan: Plan) => plan.outlets],
+              [copy.rows.people, () => copy.noLimitShort],
+            ] as [string, (plan: Plan) => React.ReactNode][]
+          ).map(([label, value]) => (
+            <tr key={label} className="border-b border-line">
+              <th scope="row" className="py-4 pr-4 font-medium">
+                {label}
+              </th>
+              {plans.map((plan) => (
+                <td key={plan.key} className="py-4 text-center font-semibold">
+                  {value(plan)}
+                </td>
+              ))}
+            </tr>
+          ))}
           {featureOrder.map((feature) => (
             <tr key={feature} className="border-b border-line">
               <th scope="row" className="py-4 pr-4 font-medium">

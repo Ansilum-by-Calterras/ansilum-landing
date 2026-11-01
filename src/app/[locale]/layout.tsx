@@ -25,13 +25,13 @@ export function generateMetadata({ params }: { params: { locale: string } }): Me
     metadataBase: new URL(siteConfig.url || 'http://localhost:3000'),
     title: {
       default: en
-        ? 'Ansilum — Cashier app with an AI assistant for Indonesian small businesses'
-        : 'Ansilum — Aplikasi kasir dengan asisten AI untuk UMKM Indonesia',
+        ? 'Ansilum — Cashier app for Indonesian small businesses'
+        : 'Ansilum — Aplikasi kasir untuk UMKM Indonesia',
       template: '%s | Ansilum',
     },
     description: en
-      ? 'Ansilum is an AI-native POS for Indonesian UMKM: record sales, ask questions about your business, and choose your next step.'
-      : 'Ansilum adalah aplikasi kasir dengan asisten AI untuk UMKM Indonesia: catat penjualan, ajukan pertanyaan tentang usaha, dan tentukan langkah berikutnya.',
+      ? 'Ansilum is a cashier app for Indonesian UMKM: record sales, even offline, and read them on the web. An AI assistant that answers questions about your business is in development.'
+      : 'Ansilum adalah aplikasi kasir untuk UMKM Indonesia: catat penjualan, bahkan saat offline, dan baca hasilnya di web. Asisten AI yang menjawab pertanyaan soal usaha Anda sedang dikembangkan.',
     robots: siteConfig.url ? { index: true, follow: true } : { index: false, follow: false },
     applicationName: 'Ansilum',
   }

@@ -1,5 +1,6 @@
 import { Container, FinalCta, PageHeader } from '@/components/site/page-parts'
-import { AiCredits, CompareTable, PlanCards } from '@/components/site/pricing-plans'
+import { PlanCards } from '@/components/site/plan-cards'
+import { AiStatus, CompareTable, PlanNotes } from '@/components/site/pricing-plans'
 import { pricingContent } from '@/content/pricing'
 import { isLocale, type Locale } from '@/i18n/config'
 import { pageMetadata } from '@/lib/metadata'
@@ -10,10 +11,10 @@ const content = {
     meta: {
       title: 'Pricing',
       description:
-        'Ansilum plans start at Rp50,000 a month: Basic, Standard, and Full. The AI assistant is coming soon with pay-as-you-go credits.',
+        'Ansilum plans: Basic Rp50,000, Standard Rp99,000 and Full Rp199,000 a month. See what each plan includes and how many businesses and outlets it covers.',
     },
     title: 'Simple pricing that grows with your business.',
-    lead: 'Pick a plan for your cashier, pay monthly, and switch as you grow. The AI assistant is coming soon, paid with credits only when you use it.',
+    lead: 'Pick the plan that fits your outlets. Pay monthly, or yearly on Standard and Full to save 10%, and move up a plan as you grow.',
     stepsHeading: 'From demo to your first sale.',
     steps: [
       ['Request a demo', 'Tell us about your business. It is free.'],
@@ -26,10 +27,10 @@ const content = {
     meta: {
       title: 'Harga',
       description:
-        'Paket Ansilum mulai Rp50.000 per bulan: Basic, Standard, dan Full. Asisten AI segera hadir dengan kredit bayar sesuai pemakaian.',
+        'Paket Ansilum: Basic Rp50.000, Standard Rp99.000 dan Full Rp199.000 per bulan. Lihat isi setiap paket dan jumlah usaha serta outlet yang dicakup.',
     },
     title: 'Harga sederhana yang tumbuh bersama usaha Anda.',
-    lead: 'Pilih paket kasir, bayar bulanan, dan naik paket kapan saja saat usaha berkembang. Asisten AI segera hadir, dibayar dengan kredit hanya saat dipakai.',
+    lead: 'Pilih paket yang sesuai dengan jumlah outlet Anda. Bayar bulanan, atau tahunan untuk Standard dan Full agar hemat 10%, lalu naik paket saat usaha berkembang.',
     stepsHeading: 'Dari demo sampai penjualan pertama.',
     steps: [
       ['Minta demo', 'Ceritakan usaha Anda. Gratis.'],
@@ -61,7 +62,8 @@ export default function PricingPage({ params }: Props) {
       <section id="plans" className="scroll-mt-20">
         <Container className="space-y-6 py-16 sm:py-20">
           <PlanCards locale={locale} />
-          <AiCredits locale={locale} />
+          <PlanNotes locale={locale} />
+          <AiStatus locale={locale} />
         </Container>
       </section>
 
